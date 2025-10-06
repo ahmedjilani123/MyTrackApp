@@ -1,0 +1,7 @@
+<mvc:View controllerName="aj.sap.myexpenseapp.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <Title text="login"/>
+    </Page>
+</mvc:View>

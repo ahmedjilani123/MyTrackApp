@@ -1,1 +1,53 @@
 /* Enter your custom styles here */
+.MainLoginPage{
+    background-image: url("../images/LoginPage.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.customInputClass {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.customInputClass::placeholder {
+    color: white;
+ font-weight: 400;
+ font-family: 'Times New Roman', Times, serif;
+      font-size: 0.9rem;  
+    opacity: 0.8;
+}
+.customInputClass:focus{
+    border: 1px solid blue !important;
+}
+.customButtonClass {
+    background-color: white;
+    font-size: small;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-top: 1.10rem;
+    border: 2px solid white;
+    color:#0040B0;
+}
+
+.customButtonClass:hover {
+    background-color: white;
+    border-color: white;
+    cursor: pointer;
+    color: black;
+}
+
+.customButtonClass:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.forgotPassText{
+    color: white;
+    margin-left: 6.80rem;
+   
+}
+#__link0{
+     color: white;
+}

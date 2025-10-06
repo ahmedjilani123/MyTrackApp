@@ -79,12 +79,23 @@
                     "target": [
                         "TargetInitial"
                     ]
+                },
+                {
+                    "name": "RouteDashboard",
+                    "pattern": "dashboard",
+                    "target": [
+                        "TargetDashboard"
+                    ]
                 }
             ],
             "targets": {
                 "TargetInitial": {
                     "id": "Initial",
                     "name": "Initial"
+                },
+                "TargetDashboard": {
+                    "id": "Dashboard",
+                    "name": "Main.Dashboard"
                 }
             }
         },
