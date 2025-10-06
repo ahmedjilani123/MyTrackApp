@@ -1,0 +1,97 @@
+{
+    "_version": "1.60.0",
+    "sap.app": {
+        "id": "aj.sap.myexpenseapp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.15.5",
+            "toolsId": "d133e813-35e9-4eff-9b30-296c0d1bbe70"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.120.27",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "aj.sap.myexpenseapp.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "aj.sap.myexpenseapp.view",
+                "async": true,
+                "viewPath": "aj.sap.myexpenseapp.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteInitial",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetInitial"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetInitial": {
+                    "id": "Initial",
+                    "name": "Initial"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "aj.sap.myexpenseapp.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}
