@@ -1,9 +1,9 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
+    "aj/sap/myexpenseapp/controller/BaseController"
+], (BaseController) => {
     "use strict";
 
-    return Controller.extend("aj.sap.myexpenseapp.controller.Dashboard", {
+    return BaseController.extend("aj.sap.myexpenseapp.controller.Dashboard", {
         onInit() {
         }
     });

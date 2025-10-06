@@ -6,9 +6,9 @@
     <core:Icon src="sap-icon://cart-2" class="sapUiLargeMarginBottom" color="white"  size="3.25rem"></core:Icon>
 
   <My:MyInput  placeholder="UserName" value="" liveChange="submit" width="200px" height="1.30rem" />
-  <My:MyInput  placeholder="UserName" value="" liveChange="submit" width="200px" height="1.30rem" />
+  <My:MyInput  placeholder="Password" value="" liveChange="submit" width="200px" height="1.30rem" />
    
-   <My:MyButton text="LOGIN" width="13.55rem" height="1.80rem"/>
+   <My:MyButton text="LOGIN" width="13.55rem" height="1.80rem" press="loginHandler"/>
 
   <Link text="Forgot Password?" textAlign="Left"  class="forgotPassText sapUiTinyMarginTop"/>
   

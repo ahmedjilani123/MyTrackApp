@@ -7,7 +7,7 @@ sap.ui.define([
         onInit() {
               
         },
-        RouterHandler(){
+        loginHandler(){
             var Router = this.getOwnerComponent().getRouter();
             Router.navTo("RouteDashboard");
         },
