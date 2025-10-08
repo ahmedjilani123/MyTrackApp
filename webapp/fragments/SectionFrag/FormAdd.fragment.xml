@@ -1,0 +1,61 @@
+ <core:FragmentDefinition
+      xmlns:core="sap.ui.core" 
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:obj="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+    xmlns:f="sap.f">
+
+    <!-- Dynamic Header Title -->
+    <obj:ObjectPageDynamicHeaderTitle >
+        <!-- Navigation Actions -->
+        <obj:navigationActions>
+            <OverflowToolbarButton
+                type="Transparent"
+                icon="sap-icon://decline"
+                press="handleCloseSideScreenPre"
+            
+                tooltip="Close" />
+        </obj:navigationActions>
+
+        <!-- Title and Description -->
+        <obj:expandedHeading>
+            <VBox>
+                <Title
+                    text="Add Income"
+                    level="H1"
+                    wrapping="true"
+                    class="sapUiSmallMarginBottom" />
+                <Text
+                    text="Add Data"
+                    class="sapUiTinyMarginBottom"
+                    wrapping="true" />
+            </VBox>
+        </obj:expandedHeading>
+
+      
+     
+    </obj:ObjectPageDynamicHeaderTitle>
+<form:SimpleForm >
+<form:content>
+<Label text="Amount"></Label>
+<Input type="Number" placeholder="e.g ₹ 1,000"></Input>
+<Label text="Category"></Label>
+<Select >
+<core:Item text="Income"></core:Item>
+</Select>
+<Label text="Business Partner"></Label>
+<Select >
+<core:Item text="Income"></core:Item>
+</Select>
+<Label text="title"></Label>
+<Input placeholder="e.g Salary" ></Input>
+<Label text="Description"></Label>
+<TextArea rows="2" placeholder="Enter few words"></TextArea>
+</form:content>
+</form:SimpleForm>
+
+
+ </core:FragmentDefinition>

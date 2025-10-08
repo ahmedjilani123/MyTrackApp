@@ -1,6 +1,6 @@
 /* Enter your custom styles here */
 .MainLoginPage{
-    background-image: url("../images/LoginPage.png") !important;
+    background-image: url("../images/LoginPageM.png") !important;
     background-size: cover !important;
     background-position: center !important;
 }
@@ -52,3 +52,46 @@
      color: white;
 }
 /* login page css end */
+.TextClassHeader{
+    color: white !important;
+}
+.LabelClassHeader{
+    color: azure !important;
+}
+.HeaderCardCss{
+    background-image:linear-gradient(to right,#925FE2,#DFCFF7) !important;
+    color: White !important;
+}
+.SideNavigationCss{
+    background-image:linear-gradient(to bottom,#925FE2,#DFCFF7) !important;
+}
+.HeaderCssTt{
+      background-image:linear-gradient(to right,#925FE2,#DFCFF7) !important;
+        color: White !important;
+}
+
+/* Income Page */
+.sapAddIncomeCss{
+    color: #00a63e !important;
+}
+.sapAddExpenseCss{
+    color: #e80d16 !important;
+}
+.sapAddAddTaskCss{
+    color: #a55dfd !important;
+}
+.sapAddInvestCss{
+    color: #3b90fe !important;
+}
+.sapBackgroundIncomeCss{
+    background-color: #e6faee !important;
+}
+.sapBackgroundExpenseCss{
+    background-color: #ffeaeb !important;
+}
+.sapBackgroundNoticeCss{
+    background-color: #f6ecff !important;
+}
+.sapBackgroundInvestCss{
+    background-color: #e9f2ff !important;
+}

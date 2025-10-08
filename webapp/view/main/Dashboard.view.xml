@@ -4,7 +4,7 @@
 
 <tnt:ToolPage >
 <tnt:header>
-<tnt:ToolHeader >
+<tnt:ToolHeader class="HeaderCssTt">
 <Button icon="sap-icon://menu2"></Button>
 <Button text="My Applications"></Button>
 <ToolbarSpacer ></ToolbarSpacer>
@@ -13,15 +13,17 @@
    <BadgeCustomData key="badge" value="2"></BadgeCustomData> 
     </customData>
     </Button>
-     <Avatar displaySize="XS" displayShape="Circle"></Avatar>
+     <Avatar src="../images/avatar.png" displaySize="XS" displayShape="Circle"></Avatar>
 </tnt:ToolHeader>
 </tnt:header>
-<tnt:sideContent>
-<tnt:SideNavigation selectedItem="Personal Dashboard" selectedKey="1D">
+<tnt:sideContent >
+<tnt:SideNavigation class="SideNavigationCss" selectedItem="Personal Dashboard" selectedKey="1D">
 <tnt:item>
-<tnt:NavigationList >
-<tnt:NavigationListItem text="Personal Dashboard" key="1D" icon="sap-icon://bbyd-dashboard"></tnt:NavigationListItem>
-<tnt:NavigationListItem text="Bank Information" icon="sap-icon://wallet"></tnt:NavigationListItem>
+<tnt:NavigationList itemSelect="NavigationPress">
+<tnt:NavigationListItem text="Personal Dashboard" key="Home" icon="sap-icon://bbyd-dashboard"></tnt:NavigationListItem>
+<tnt:NavigationListItem text="Basic Information" icon="sap-icon://curriculum"></tnt:NavigationListItem>
+<tnt:NavigationListItem text="Add Income/Expense" key="IncomeExpense" icon="sap-icon://loan"></tnt:NavigationListItem>
+<tnt:NavigationListItem text="Admin Section" key="AdminSec" icon="sap-icon://key-user-settings"></tnt:NavigationListItem>
 </tnt:NavigationList>
 </tnt:item>
 <tnt:fixedItem>
@@ -32,7 +34,9 @@
 </tnt:SideNavigation>
 
 </tnt:sideContent>
-<tnt:mainContents></tnt:mainContents>
+<tnt:mainContents>
+<App id="MainApp"></App>
+</tnt:mainContents>
 
 </tnt:ToolPage>
     </mvc:View>

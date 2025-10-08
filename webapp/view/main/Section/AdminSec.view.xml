@@ -1,0 +1,84 @@
+<mvc:View controllerName="aj.sap.myexpenseapp.controller.AdminSec"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+  <Page id="AdminSec" title="Track Management" class="sapUiResponsiveContentPadding">
+  <Panel headerText="Category">
+  <headerToolbar>
+  <OverflowToolbar >
+    <Title text="Manage Categories"></Title>
+ 
+  <ToolbarSpacer ></ToolbarSpacer>
+ <Button icon="sap-icon://add" text="Add"></Button>
+  </OverflowToolbar>
+  </headerToolbar>
+  <Table >
+  <items>
+  </items>
+  <columns>
+  <Column hAlign="Center">
+  <header>
+  <Label text="Category"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Type(Income/Expense)"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Actions"></Label>
+  </header>
+  </Column>
+  </columns>
+  </Table>
+  </Panel>
+   <Panel headerText="User Mamage" class="sapUiSmallMarginTop">
+  <headerToolbar>
+  <OverflowToolbar >
+    <Title text="Manage Users"></Title>
+ 
+  <ToolbarSpacer ></ToolbarSpacer>
+ <Button icon="sap-icon://add" text="User"></Button>
+  </OverflowToolbar>
+  </headerToolbar>
+  <Table >
+  <items>
+  </items>
+  <columns>
+  <Column hAlign="Center">
+  <header>
+  <Label text="Name"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Role"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Status"></Label>
+  </header>
+  </Column>
+     <Column hAlign="Center">
+  <header>
+  <Label text="Actions"></Label>
+  </header>
+  </Column>
+  </columns>
+  </Table>
+  </Panel>
+   <Panel headerText="Application" class="sapUiSmallMarginTop">
+  <headerToolbar>
+  <OverflowToolbar >
+    <Title text="Application Settings"></Title>
+ 
+
+  </OverflowToolbar>
+  </headerToolbar>
+ 
+  </Panel>
+  </Page>
+</mvc:View>

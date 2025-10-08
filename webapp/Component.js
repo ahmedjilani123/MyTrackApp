@@ -18,7 +18,9 @@ sap.ui.define([
 
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
-
+ var omdeol =this.getModel("ColumnLayout");
+                omdeol.setData({FLayout:"OneColumn"})
+                omdeol.refresh(true);
             // enable routing
             this.getRouter().initialize();
         }

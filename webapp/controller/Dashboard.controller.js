@@ -5,6 +5,11 @@ sap.ui.define([
 
     return BaseController.extend("aj.sap.myexpenseapp.controller.Dashboard", {
         onInit() {
+        },
+        NavigationPress(oEvent){
+          var RouterName =  oEvent.getParameter("item").getProperty("key")
+            var Router = this.getOwnerComponent().getRouter();
+            Router.navTo(RouterName)
         }
     });
 });

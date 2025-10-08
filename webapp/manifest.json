@@ -14,6 +14,12 @@
             "id": "@sap/generator-fiori:basic",
             "version": "1.15.5",
             "toolsId": "d133e813-35e9-4eff-9b30-296c0d1bbe70"
+        },
+        "dataSources": {
+            "MainDataSalary":{
+                "uri": "./model/SalaryM.json",
+                "type": "JSON"
+            }
         }
     },
     "sap.ui": {
@@ -51,6 +57,13 @@
                 "settings": {
                     "bundleName": "aj.sap.myexpenseapp.i18n.i18n"
                 }
+            },
+            "SalaryM":{
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "MainDataSalary"
+            },
+            "ColumnLayout":{
+                  "type": "sap.ui.model.json.JSONModel"
             }
         },
         "resources": {
@@ -84,9 +97,31 @@
                     "name": "RouteDashboard",
                     "pattern": "dashboard",
                     "target": [
-                        "TargetDashboard"
+                        "TargetDashboard","Home"
+                    ]
+                },
+                 {
+                    "name": "Home",
+                    "pattern": "dashboard/Home",
+                    "target": [
+                        "Home"
+                    ]
+                },
+                  {
+                    "name": "IncomeExpense",
+                    "pattern": "dashboard/IncomeEx",
+                    "target": [
+                        "IncomeExpense"
+                    ]
+                },
+                 {
+                    "name": "AdminSec",
+                    "pattern": "dashboard/adminSec",
+                    "target": [
+                        "AdminSec"
                     ]
                 }
+
             ],
             "targets": {
                 "TargetInitial": {
@@ -97,6 +132,30 @@
                     "id": "Dashboard",
                     "transition":"show",
                     "name": "Main.Dashboard"
+                },
+                "Home":{
+                      "id": "Home",
+                      "parent": "TargetDashboard",
+                      "controlId": "MainApp",
+                      "controlAggregation": "pages",
+                    "transition":"show",
+                    "name": "Main.Section.Home" 
+                },
+                  "IncomeExpense":{
+                      "id": "IncomeEx",
+                      "parent": "TargetDashboard",
+                      "controlId": "MainApp",
+                      "controlAggregation": "pages",
+                    "transition":"show",
+                    "name": "Main.Section.IncomeEx" 
+                },
+                  "AdminSec":{
+                      "id": "AdminSec",
+                      "parent": "TargetDashboard",
+                      "controlId": "MainApp",
+                      "controlAggregation": "pages",
+                    "transition":"show",
+                    "name": "Main.Section.AdminSec" 
                 }
             }
         },
