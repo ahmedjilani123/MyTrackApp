@@ -1,0 +1,85 @@
+<mvc:View xmlns:tnt="sap.tnt"
+		controllerName="aj.sap.myexpenseapp.controller.AnalyticTran"	height="100%"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+		<f:DynamicPage>
+			
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="Title" label="Title" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<Input ></Input>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<Input ></Input>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Amount" label="Amount" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input ></Input>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+			<Table itemPress="ViewDetailTranHandler">
+  <items>
+  <ColumnListItem type="Navigation" >
+  <cells>
+  <tnt:InfoLabel icon="sap-icon://trend-up" colorScheme="8"></tnt:InfoLabel>
+  <Text text="Pay for Salary"/>
+  <Text text="Salary"/>
+  <Text text="Income"></Text>
+  <ObjectNumber number="$ 5400" state="Success"></ObjectNumber>
+  <Text text="Mar 12 2025"></Text>
+  </cells>
+  </ColumnListItem>
+  </items>
+  <columns>
+  <Column hAlign="Center" width="6rem">
+  <header>
+  <Label text="Up/Down"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Title"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Category"></Label>
+  </header>
+  </Column>
+   <Column hAlign="Center">
+  <header>
+  <Label text="Type"></Label>
+  </header>
+  </Column>
+   <Column hAlign="Center">
+  <header>
+  <Label text="Amount"></Label>
+  </header>
+  </Column>
+   <Column hAlign="Center">
+  <header>
+  <Label text="Date"></Label>
+  </header>
+  </Column>
+  </columns>
+  </Table>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>

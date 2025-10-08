@@ -120,7 +120,22 @@
                     "target": [
                         "AdminSec"
                     ]
+                },
+                  {
+                    "name": "AnalyticTran",
+                    "pattern": "dashboard/transaction",
+                    "target": [
+                        "AnalyticTran"
+                    ]
+                },
+                 {
+                    "name": "TransactDetail",
+                    "pattern": "dashboard/transactdetail",
+                    "target": [
+                        "TransactDetail"
+                    ]
                 }
+                
 
             ],
             "targets": {
@@ -156,6 +171,22 @@
                       "controlAggregation": "pages",
                     "transition":"show",
                     "name": "Main.Section.AdminSec" 
+                },
+                 "AnalyticTran":{
+                      "id": "AnalyticTran",
+                      "parent": "TargetDashboard",
+                      "controlId": "MainApp",
+                      "controlAggregation": "pages",
+                    "transition":"show",
+                    "name": "Main.Section.AnalyticTran" 
+                },
+                 "TransactDetail":{
+                      "id": "TransactDetail",
+                      "parent": "TargetDashboard",
+                      "controlId": "MainApp",
+                      "controlAggregation": "pages",
+                    "transition":"show",
+                    "name": "Main.Section.TransactDetail" 
                 }
             }
         },

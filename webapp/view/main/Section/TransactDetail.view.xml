@@ -1,0 +1,67 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:obj="sap.uxap" controllerName="aj.sap.myexpenseapp.controller.transactDetail"
+	xmlns="sap.m"
+	height="100%">
+    <Page  id="TransactDetail" title="Transaction Details" showNavButton="true" navButtonPress="NavtoBack" navButtonTooltip="Back To Preview Page" enableScrolling="false">
+    <ObjectHeader fullScreenOptimized="true"
+		backgroundDesign="Solid"
+		title="title"
+      
+		number="₹ 5400"
+		numberUnit="INR"
+		>
+		<statuses>
+			<ObjectStatus
+				text="Income"
+				state="Success" />
+		</statuses>
+		<ObjectAttribute text="Description"></ObjectAttribute>
+	
+	</ObjectHeader>
+	<obj:ObjectPageLayout id="sdf" >
+
+		<obj:sections>
+			<obj:ObjectPageSection titleUppercase="false" title="Business Partner Details">
+				<obj:subSections>
+					<obj:ObjectPageSubSection title="Business Partner Details" titleUppercase="false">
+					<form:SimpleForm layout="ColumnLayout" columnsL="2" columnsM="2">
+                    <form:content>
+                    <Label text="Organization Name"></Label>
+                    <Text text="Daffodils"></Text>
+                     <Label text="Designation/Role"></Label>
+                    <Text text="SAP FIORI/UI5"></Text>
+                     <Label text="Payer Name"></Label>
+                    <Text text="Bavesh Sir (CEO)"></Text>
+                     <Label text="Organization Name"></Label>
+                    <Text text="Daffodils"></Text>
+                    </form:content>
+                    </form:SimpleForm>
+					</obj:ObjectPageSubSection>
+				
+				</obj:subSections>
+			</obj:ObjectPageSection>
+<obj:ObjectPageSection titleUppercase="false" title="Income/Expense Details">
+				<obj:subSections>
+					<obj:ObjectPageSubSection title="Income/Expense Details" titleUppercase="false">
+					<form:SimpleForm layout="ColumnLayout" columnsL="2" columnsM="2">
+                    <form:content>
+                    <Label text="Created Date"></Label>
+                    <Text text="11-01-2025"></Text>
+                     <Label text="Category"></Label>
+                    <Text text="Salary"></Text>
+                     <Label text="Created By "></Label>
+                    <Text text="Ahmed"></Text>
+                     <Label text="Type"></Label>
+                    <Text text="Income"></Text>
+                    </form:content>
+                    </form:SimpleForm>
+					</obj:ObjectPageSubSection>
+				
+				</obj:subSections>
+			</obj:ObjectPageSection>
+		
+		</obj:sections>
+
+	</obj:ObjectPageLayout>
+    </Page>
+</mvc:View>

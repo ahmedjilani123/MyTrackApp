@@ -12,14 +12,14 @@
                        </Page>
                 </f:beginColumnPages>
                 <f:midColumnPages>
-                    <Page  showHeader="false" showFooter="true" backgroundDesign="List">
+                    <Page id="FormPageID"  showHeader="false" showFooter="true" backgroundDesign="List">
                    
                 <content>
                   <core:Fragment  fragmentName="aj.sap.myexpenseapp.fragments.SectionFrag.FormAdd" type="XML"/>
                
                    </content>
-                   <footer>
-                   <OverflowToolbar >
+                   <footer >
+                   <OverflowToolbar id="footerIdForm">
                    <ToolbarSpacer ></ToolbarSpacer>
                    <Button text="Save"></Button>
                    </OverflowToolbar>

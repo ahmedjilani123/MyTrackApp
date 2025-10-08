@@ -72,7 +72,7 @@
  
  <f:Card >
  <f:content>
- <List growing="true" growingThreshold="5"  showNoData="true">
+ <List growing="true" growingThreshold="5"  showNoData="true" itemPress="ViewDetailTranHandler">
  
  	<CustomListItem type="Navigation">
 					<HBox alignItems="Center" justifyContent="SpaceBetween">

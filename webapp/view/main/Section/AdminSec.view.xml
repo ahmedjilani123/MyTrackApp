@@ -1,17 +1,13 @@
-<mvc:View controllerName="aj.sap.myexpenseapp.controller.AdminSec"
-    displayBlock="true"
+<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aj.sap.myexpenseapp.controller.AdminSec"
+    displayBlock="true" xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-  <Page id="AdminSec" title="Track Management" class="sapUiResponsiveContentPadding">
-  <Panel headerText="Category">
-  <headerToolbar>
-  <OverflowToolbar >
-    <Title text="Manage Categories"></Title>
- 
-  <ToolbarSpacer ></ToolbarSpacer>
- <Button icon="sap-icon://add" text="Add"></Button>
-  </OverflowToolbar>
-  </headerToolbar>
+  <Page id="AdminSec" title="Track Management" >
+  	<content>
+			<f:SidePanel id="mySidePanel" sidePanelResizable="true" toggle="onToggle">
+				<f:mainContent>
+				<Panel headerText="Category">
+  
   <Table >
   <items>
   </items>
@@ -35,14 +31,7 @@
   </Table>
   </Panel>
    <Panel headerText="User Mamage" class="sapUiSmallMarginTop">
-  <headerToolbar>
-  <OverflowToolbar >
-    <Title text="Manage Users"></Title>
  
-  <ToolbarSpacer ></ToolbarSpacer>
- <Button icon="sap-icon://add" text="User"></Button>
-  </OverflowToolbar>
-  </headerToolbar>
   <Table >
   <items>
   </items>
@@ -80,5 +69,45 @@
   </headerToolbar>
  
   </Panel>
+				</f:mainContent>
+				<f:items>
+					<f:SidePanelItem icon="sap-icon://add" text="Add Category">
+					<form:SimpleForm >
+                    <form:content>
+                    <Label text="Category Name"></Label>
+                    <Input ></Input>
+                    <Label text="Category Type"></Label>
+                    <Select >
+                    <core:Item text="Income"></core:Item>
+                       <core:Item text="Expense"></core:Item>
+                          <core:Item text="Invest"></core:Item>
+                    </Select>
+                    <Button text="Save"></Button>
+                    </form:content>
+                    </form:SimpleForm>
+					</f:SidePanelItem>
+					<f:SidePanelItem icon="sap-icon://person-placeholder" text="Add User">
+					<form:SimpleForm >
+                    <form:content>
+                    <Label text="User Name"></Label>
+                    <Input ></Input>
+                    <Label text="User Email"></Label>
+                 <Input ></Input>
+                 <Label text="Gender"></Label>
+                 <Select >
+                 <core:Item text="Male"></core:Item>
+                 <core:Item text="Female"></core:Item>
+                 </Select>
+                 <Label text="Password"></Label>
+                 <Input type="Password"></Input>
+                    <Button text="Save"></Button>
+                    </form:content>
+                    </form:SimpleForm>
+					</f:SidePanelItem>
+				
+				</f:items>
+			</f:SidePanel>
+		</content>
+  
   </Page>
 </mvc:View>

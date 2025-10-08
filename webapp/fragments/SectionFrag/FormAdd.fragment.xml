@@ -9,7 +9,7 @@
     xmlns:f="sap.f">
 
     <!-- Dynamic Header Title -->
-    <obj:ObjectPageDynamicHeaderTitle >
+    <obj:ObjectPageDynamicHeaderTitle id="FormPage">
         <!-- Navigation Actions -->
         <obj:navigationActions>
             <OverflowToolbarButton

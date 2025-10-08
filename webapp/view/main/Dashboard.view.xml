@@ -24,6 +24,8 @@
 <tnt:NavigationListItem text="Basic Information" icon="sap-icon://curriculum"></tnt:NavigationListItem>
 <tnt:NavigationListItem text="Add Income/Expense" key="IncomeExpense" icon="sap-icon://loan"></tnt:NavigationListItem>
 <tnt:NavigationListItem text="Admin Section" key="AdminSec" icon="sap-icon://key-user-settings"></tnt:NavigationListItem>
+<tnt:NavigationListItem text="Analytics Transaction" key="AnalyticTran" icon="sap-icon://key-user-settings"></tnt:NavigationListItem>
+
 </tnt:NavigationList>
 </tnt:item>
 <tnt:fixedItem>
