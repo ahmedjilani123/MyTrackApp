@@ -5,7 +5,7 @@ sap.ui.define([
 
     return BaseController.extend("aj.sap.myexpenseapp.controller.Initial", {
         onInit() {
-              
+              this.ShowBusyIndicator();
         },
         loginHandler(){
             var Router = this.getOwnerComponent().getRouter();

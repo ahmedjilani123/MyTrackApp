@@ -1,0 +1,228 @@
+
+<mvc:View  controllerName="aj.sap.myexpenseapp.controller.ResourceInfo"
+      xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:obj="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+    xmlns:f="sap.f" id="BasicInfo"> 
+    <obj:ObjectPageLayout showFooter="true"
+        showTitleInHeaderContent="true"
+        showEditHeaderButton="true"
+        editHeaderButtonPress="handleEditBtnPress"
+        upperCaseAnchorBar="false"
+    >
+        <obj:headerTitle>
+            <obj:ObjectPageDynamicHeaderTitle backgroundDesign="Translucent">
+                <obj:expandedHeading>
+                    <HBox>
+                        <Title
+                            text="Ahmed Shaikh"
+                            wrapping="true"
+                        />
+                        <ObjectMarker
+                            type="Favorite"
+                            class="sapUiTinyMarginBegin"
+                        />
+                    </HBox>
+                </obj:expandedHeading>
+
+                <obj:snappedHeading>
+                    <FlexBox
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <Avatar
+                            src="../Images/profile.jpg"
+                            class="sapUiTinyMarginEnd" active="true" press="AvatarPress"
+                        />
+                        <Title
+                            text="Ahmed Shaikh"
+                            wrapping="true"
+                        />
+                    </FlexBox>
+                </obj:snappedHeading>
+
+                <obj:expandedContent>
+                    <Text text="SAPUI5 Developer" />
+                </obj:expandedContent>
+
+                <obj:snappedContent>
+                    <Text text="SAPUI5 Developer" />
+                </obj:snappedContent>
+
+                <obj:snappedTitleOnMobile>
+                    <Title text="SAPUI5 Developer" />
+                </obj:snappedTitleOnMobile>
+
+                <obj:actions>
+                    <Button text="Edit Profile"
+                       icon="sap-icon://user-edit"
+                    />
+                   
+                  
+                </obj:actions>
+            </obj:ObjectPageDynamicHeaderTitle>
+        </obj:headerTitle>
+
+        <obj:headerContent>
+            <FlexBox wrap="Wrap">
+                <Avatar
+                    class="sapUiSmallMarginEnd"
+                    src="./../images/avatar.png"
+                    displaySize="L" active="true" showBorder="true" press="AvatarPress"
+                />
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <Text
+                        text="Passionate about crafting seamless SAPUI5 applications "
+                        wrapping="true"
+                    />
+                    <Text
+                        text="that elevate user experiences. Always learning, always innovating."
+                    />
+                    <VBox>
+                        <Label text="SAP Fiori/UI5" />
+                        <ProgressIndicator
+                            percentValue="85"
+                            displayValue="85%"
+                            state="Success"
+                        />
+                    </VBox>
+                </layout:VerticalLayout>
+
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <layout:VerticalLayout>
+                        <ObjectStatus
+                            icon="sap-icon://da"
+                            title="Skills"
+                            text="SAP BTP,SAP CAPM,Fiori/UI5"
+                        />
+                        <ObjectStatus
+                            title="Country"
+                            text="India"
+                        />
+                        <ObjectStatus
+                            title="Language"
+                            text="English,Hindi"
+                        />
+                        <ObjectStatus
+                            icon="sap-icon://call"
+                            title="Mobile Number"
+                            text="+91-63530-38823"
+                        />
+                    </layout:VerticalLayout>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <layout:VerticalLayout>
+                        <ObjectStatus
+                            icon="sap-icon://end-user-experience-monitoring"
+                            title="Experience"
+                            text="2.7 years"
+                        />
+                        <ObjectStatus
+                            icon="sap-icon://study-leave"
+                            title="Qualification"
+                            text="Bachelor of Technology (CE)"
+                        />
+                        <ObjectStatus
+                            icon="sap-icon://email"
+                            title="Email"
+                            text="shaikhahmedjilani7860@gmail.com"
+                        />
+                    </layout:VerticalLayout>
+                </layout:VerticalLayout>
+            </FlexBox>
+        </obj:headerContent>
+
+        <obj:sections>
+            <obj:ObjectPageSection
+                titleUppercase="false"
+                title="Objective"
+            >
+                <obj:ObjectPageSubSection
+                    title="Objective"
+                    titleUppercase="false"
+                >
+                    <Text
+                        text="I strive to apply my programming skills and software development experience to contribute to a forward-thinking tech team and create innovative solutions. Proficient in SAP BTP, CAPM, Node.js, and JavaScript and other web technologies."
+                    />
+                </obj:ObjectPageSubSection>
+            </obj:ObjectPageSection>
+         
+         <obj:ObjectPageSection
+                titleUppercase="false"
+                title="Income Resource Details"
+            >
+                <obj:ObjectPageSubSection
+                    title="Income Resource Details"
+                    titleUppercase="false"
+                >
+                  <Table mode="SingleSelectLeft">
+  <items>
+  <ColumnListItem >
+  <cells>
+  <Text text="Jr SAP UI5/Fiori Consultant"></Text>
+  <Text text="Daffodils Info Solutions Pvt Ltd"></Text>
+<Text text="Frontend (UI5, JS, OData)"></Text>
+  <Text text="3 Years"></Text>
+  <Text text="Ramesh Kumar"></Text>
+  
+  <ObjectStatus text="₹ 11,000" state="Success"></ObjectStatus>
+  </cells>
+  </ColumnListItem>
+  </items>
+  <columns>
+    <Column hAlign="Begin" importance="High">
+  <header>
+  <Label text="Job Title"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Begin"  importance="High"  >
+  <header>
+  <Label text="Organization Name"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center"  demandPopin="true" 	minScreenWidth="Tablet">
+  <header>
+  <Label text="Expertise Area"></Label>
+  </header>
+  </Column>
+   <Column hAlign="Center"  demandPopin="true" 	minScreenWidth="Tablet">
+  <header>
+  <Label text="Experience"></Label>
+  </header>
+  </Column>
+  
+   <Column hAlign="Center"  demandPopin="true" 	minScreenWidth="Tablet">
+  <header>
+  <Label text="Payer Name"></Label>
+  </header>
+  </Column>
+  <Column hAlign="Center" importance="Medium"  demandPopin="true" 	minScreenWidth="Tablet">
+  <header>
+  <Label text="Primary Income"></Label>
+  </header>
+  </Column>
+  
+  </columns>
+  </Table>
+                </obj:ObjectPageSubSection>
+            </obj:ObjectPageSection>
+         
+    
+        </obj:sections>
+        <obj:footer>
+        <OverflowToolbar >
+        <ToolbarSpacer ></ToolbarSpacer>
+        <Button text="Delete" type="Reject" icon="sap-icon://sys-cancel"></Button>
+        <Button text="Edit" type="Attention" icon="sap-icon://developer-settings"></Button>
+          <Button text="Add Resource" type="Ghost"
+                       icon="sap-icon://cart-4"
+                    />
+        </OverflowToolbar>
+        </obj:footer>
+    </obj:ObjectPageLayout>
+    
+</mvc:View>

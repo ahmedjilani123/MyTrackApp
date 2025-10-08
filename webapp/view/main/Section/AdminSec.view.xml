@@ -4,20 +4,30 @@
     xmlns="sap.m">
   <Page id="AdminSec" title="Track Management" >
   	<content>
-			<f:SidePanel id="mySidePanel" sidePanelResizable="true" toggle="onToggle">
+			<f:SidePanel id="mySidePanel"  sidePanelResizable="true" toggle="onToggle">
 				<f:mainContent>
 				<Panel headerText="Category">
   
   <Table >
   <items>
+  <ColumnListItem >
+  <cells>
+  <Text text="Salary"></Text>
+  <Text text="Income"></Text>
+  <HBox justifyContent="Center" alignItems="Center">
+  <Button icon="sap-icon://edit" type="Attention"></Button>
+  <Button icon="sap-icon://delete" type="Reject" class="sapUiTinyMarginBegin"></Button>
+  </HBox>
+  </cells>
+  </ColumnListItem>
   </items>
   <columns>
-  <Column hAlign="Center">
+  <Column hAlign="Center" importance="High">
   <header>
   <Label text="Category"></Label>
   </header>
   </Column>
-    <Column hAlign="Center">
+    <Column hAlign="Center"   demandPopin="true" 	minScreenWidth="Tablet" >
   <header>
   <Label text="Type(Income/Expense)"></Label>
   </header>

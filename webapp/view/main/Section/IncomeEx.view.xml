@@ -12,7 +12,7 @@
                        </Page>
                 </f:beginColumnPages>
                 <f:midColumnPages>
-                    <Page id="FormPageID"  showHeader="false" showFooter="true" backgroundDesign="List">
+                    <Page id="FormPageID" floatingFooter="true"  showHeader="false" showFooter="true" backgroundDesign="List">
                    
                 <content>
                   <core:Fragment  fragmentName="aj.sap.myexpenseapp.fragments.SectionFrag.FormAdd" type="XML"/>

@@ -32,8 +32,8 @@
                     <Text text="SAP FIORI/UI5"></Text>
                      <Label text="Payer Name"></Label>
                     <Text text="Bavesh Sir (CEO)"></Text>
-                     <Label text="Organization Name"></Label>
-                    <Text text="Daffodils"></Text>
+                     <Label text="Total Exp"></Label>
+                    <Text text="3 Years"></Text>
                     </form:content>
                     </form:SimpleForm>
 					</obj:ObjectPageSubSection>

@@ -44,13 +44,11 @@
 }
 
 .forgotPassText{
-    color: white;
+    color: white !important;
     margin-left: 6.80rem;
    
 }
-#__link0{
-     color: white;
-}
+
 /* login page css end */
 .TextClassHeader{
     color: white !important;

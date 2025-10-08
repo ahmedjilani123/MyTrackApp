@@ -2,10 +2,10 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m" xmlns:unified="sap.ui.unified" xmlns:tnt="sap.tnt">
 
-<tnt:ToolPage >
+<tnt:ToolPage id="ToolpageID">
 <tnt:header>
 <tnt:ToolHeader class="HeaderCssTt">
-<Button icon="sap-icon://menu2"></Button>
+<Button icon="sap-icon://menu2" press="onSideNavButtonPress"></Button>
 <Button text="My Applications"></Button>
 <ToolbarSpacer ></ToolbarSpacer>
  <Button icon="sap-icon://email" press="_EmailMessagePress">
@@ -21,7 +21,7 @@
 <tnt:item>
 <tnt:NavigationList itemSelect="NavigationPress">
 <tnt:NavigationListItem text="Personal Dashboard" key="Home" icon="sap-icon://bbyd-dashboard"></tnt:NavigationListItem>
-<tnt:NavigationListItem text="Basic Information" icon="sap-icon://curriculum"></tnt:NavigationListItem>
+<tnt:NavigationListItem text="Basic Information" key="BasicInfo" icon="sap-icon://curriculum"></tnt:NavigationListItem>
 <tnt:NavigationListItem text="Add Income/Expense" key="IncomeExpense" icon="sap-icon://loan"></tnt:NavigationListItem>
 <tnt:NavigationListItem text="Admin Section" key="AdminSec" icon="sap-icon://key-user-settings"></tnt:NavigationListItem>
 <tnt:NavigationListItem text="Analytics Transaction" key="AnalyticTran" icon="sap-icon://key-user-settings"></tnt:NavigationListItem>

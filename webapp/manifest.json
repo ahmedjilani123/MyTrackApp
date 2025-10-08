@@ -134,6 +134,13 @@
                     "target": [
                         "TransactDetail"
                     ]
+                },
+                 {
+                    "name": "BasicInfo",
+                    "pattern": "dashboard/BasicInfo",
+                    "target": [
+                        "BasicInfo"
+                    ]
                 }
                 
 
@@ -187,6 +194,14 @@
                       "controlAggregation": "pages",
                     "transition":"show",
                     "name": "Main.Section.TransactDetail" 
+                },
+                 "BasicInfo":{
+                      "id": "BasicInfo",
+                      "parent": "TargetDashboard",
+                      "controlId": "MainApp",
+                      "controlAggregation": "pages",
+                    "transition":"show",
+                    "name": "Main.Section.ResourceInfo" 
                 }
             }
         },
