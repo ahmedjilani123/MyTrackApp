@@ -19,6 +19,10 @@
             "MainDataSalary":{
                 "uri": "./model/SalaryM.json",
                 "type": "JSON"
+            },
+              "ContactInfo":{
+                "uri": "./model/Contact.json",
+                "type": "JSON"
             }
         }
     },
@@ -64,6 +68,10 @@
             },
             "ColumnLayout":{
                   "type": "sap.ui.model.json.JSONModel"
+            },
+            "ContactM":{
+                  "type": "sap.ui.model.json.JSONModel",
+                  "dataSource": "ContactInfo"
             }
         },
         "resources": {

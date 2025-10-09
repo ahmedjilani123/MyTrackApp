@@ -1,11 +1,16 @@
 sap.ui.define([
- "aj/sap/myexpenseapp/controller/BaseController"
-], (BaseController) => {
+ "aj/sap/myexpenseapp/controller/BaseController",
+  "aj/sap/myexpenseapp/controller/BusyDialog/BusyD"
+], (BaseController,BusyD) => {
     "use strict";
 
     return BaseController.extend("aj.sap.myexpenseapp.controller.IncomeEx", {
         onInit() {
-              
+             var Router = this.getOwnerComponent().getRouter();
+        Router.getRoute("IncomeExpense").attachPatternMatched(this.ObjectRouterViewData,this );
+        },
+        ObjectRouterViewData(){
+  BusyD.hide();
         },
        CreateDataForTrack(oEvent){
         var getValue = oEvent.getParameter("listItem").getAggregation("content")[0].getAggregation("items")[1].getProperty("text")
