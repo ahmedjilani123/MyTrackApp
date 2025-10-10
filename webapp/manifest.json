@@ -23,7 +23,11 @@
               "ContactInfo":{
                 "uri": "./model/Contact.json",
                 "type": "JSON"
-            }
+            },
+              "AvatarProfileM":{
+                "uri": "./model/AvatarList.json",
+                "type": "JSON"
+              }
         }
     },
     "sap.ui": {
@@ -72,6 +76,10 @@
             "ContactM":{
                   "type": "sap.ui.model.json.JSONModel",
                   "dataSource": "ContactInfo"
+            },
+            "AvatarProfile":{
+                  "type": "sap.ui.model.json.JSONModel",
+                  "dataSource": "AvatarProfileM"
             }
         },
         "resources": {
@@ -131,7 +139,7 @@
                 },
                   {
                     "name": "AnalyticTran",
-                    "pattern": "dashboard/transaction",
+                    "pattern": "dashboard/transaction/:type:/:year:",
                     "target": [
                         "AnalyticTran"
                     ]

@@ -58,7 +58,7 @@
                 </obj:snappedTitleOnMobile>
 
                 <obj:actions>
-                    <Button text="Edit Profile"
+                    <Button text="Edit Profile" press="EditProfileHandler"
                        icon="sap-icon://user-edit"
                     />
                    

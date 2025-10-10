@@ -26,7 +26,7 @@
           showButtons="false" 
 					close=".onItemNoticeClose"
 					press=".onListItemPress"
-					authorPicture="sap-icon://car-rental"
+					authorPicture="sap-icon://notes" 
 					authorAvatarColor="Accent8" />  
                     <NotificationListItem
 					title="New Policy Update"
@@ -58,7 +58,7 @@
 
 </content>
 <beginButton>
-<Button text="Close"></Button>
+<Button text="Close" press="ClosePhoneDialogH"></Button>
 </beginButton>
 </Dialog>
 	

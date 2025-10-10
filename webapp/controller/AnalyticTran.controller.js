@@ -8,8 +8,10 @@ sap.ui.define([
         onInit() {     var Router = this.getOwnerComponent().getRouter();
         Router.getRoute("AnalyticTran").attachPatternMatched(this.ObjectRouterViewData,this );
         },
-        ObjectRouterViewData(){
+        ObjectRouterViewData(oEvent){
   BusyD.hide();
+  this.getView().byId("TypeMultiComboBox").removeSelectedKeys();
+this.getView().byId("TypeMultiComboBox").setSelectedKeys([oEvent.getParameter("arguments").type])
         },
         
     });

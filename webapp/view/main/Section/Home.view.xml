@@ -33,7 +33,7 @@
 	
 <Image src="./../images/Imcome.png" width="3rem"  height="2.25rem"  class="sapUiMediumMarginTop"/>
 <Title text="$10000"></Title>
-<Label text="Total Payable" ></Label>
+<Label text="Total Income" ></Label>
 </VBox>
 </f:GridListItem>
 <f:GridListItem  type="Active" highlight="Error">
@@ -41,7 +41,7 @@
 	
 <Image src="./../images/OutPut.png" width="3rem"  height="2.25rem"  class="sapUiSmallMarginBeginEnd sapUiMediumMarginTop"/>
 <Title text="$10000"></Title>
-<Label text="Total Payable" class="sapUiMediumMarginBottom"></Label>
+<Label text="Total Expense" class="sapUiMediumMarginBottom"></Label>
 </VBox>
 </f:GridListItem>
 <f:GridListItem type="Active" highlight="Warning">
@@ -49,7 +49,7 @@
 	
 <Image src="./../images/OtherIncome.png" width="3rem"  height="2.25rem" class="sapUiSmallMarginBeginEnd sapUiMediumMarginTop"/>
 <Title text="$10000"></Title>
-<Label text="Total Payable" class="sapUiMediumMarginBottom"></Label>
+<Label text="Other Income" class="sapUiMediumMarginBottom"></Label>
 </VBox>
 </f:GridListItem>
 </f:GridList>
@@ -95,7 +95,7 @@
 </layout:BlockLayoutCell>
 <layout:BlockLayoutCell>
     <HBox justifyContent="SpaceBetween" alignItems="Center">
-    <Title text="Friends Number" class="sapUiTinyMarginTopBottom"></Title>
+    <Title text="Partner Numbers" class="sapUiTinyMarginTopBottom"></Title>
      <Link text="Add" emphasized="true" press="AddContactHandler"/>
     </HBox>
 

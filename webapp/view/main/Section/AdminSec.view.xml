@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aj.sap.myexpenseapp.controller.AdminSec"
+<mvc:View xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="aj.sap.myexpenseapp.controller.AdminSec"
     displayBlock="true" xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
@@ -6,7 +6,11 @@
   	<content>
 			<f:SidePanel id="mySidePanel"  sidePanelResizable="true" toggle="onToggle">
 				<f:mainContent>
-				<Panel headerText="Category">
+       <layout:VerticalLayout width="100%" >
+       <layout:BlockLayout >
+       <layout:BlockLayoutRow >
+       <layout:BlockLayoutCell title="List Of Category" >
+       	<Panel >
   
   <Table >
   <items>
@@ -15,7 +19,7 @@
   <Text text="Salary"></Text>
   <Text text="Income"></Text>
   <HBox justifyContent="Center" alignItems="Center">
-  <Button icon="sap-icon://edit" type="Attention"></Button>
+  <Button icon="sap-icon://edit" type="Attention" press="EditCategoryHandler"></Button>
   <Button icon="sap-icon://delete" type="Reject" class="sapUiTinyMarginBegin"></Button>
   </HBox>
   </cells>
@@ -29,7 +33,7 @@
   </Column>
     <Column hAlign="Center"   demandPopin="true" 	minScreenWidth="Tablet" >
   <header>
-  <Label text="Type(Income/Expense)"></Label>
+  <Label text="Type"></Label>
   </header>
   </Column>
     <Column hAlign="Center">
@@ -40,10 +44,64 @@
   </columns>
   </Table>
   </Panel>
-   <Panel headerText="User Mamage" class="sapUiSmallMarginTop">
+       </layout:BlockLayoutCell>
+       <layout:BlockLayoutCell title="List Of Years" >
+       	<Panel >
+  
+  <Table >
+  <items>
+  <ColumnListItem >
+  <cells>
+  <Text text="2024"></Text>
+  <Text text="Fast Year"></Text>
+  <HBox justifyContent="Center" alignItems="Center">
+  <Button icon="sap-icon://edit" type="Attention" press="EditYearHandler"></Button>
+  <Button icon="sap-icon://delete" type="Reject" class="sapUiTinyMarginBegin"></Button>
+  </HBox>
+  </cells>
+  </ColumnListItem>
+  </items>
+  <columns>
+  <Column hAlign="Center" importance="High">
+  <header>
+  <Label text="Year"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center"   demandPopin="true" 	minScreenWidth="Tablet" >
+  <header>
+  <Label text="Title"></Label>
+  </header>
+  </Column>
+    <Column hAlign="Center">
+  <header>
+  <Label text="Actions"></Label>
+  </header>
+  </Column>
+  </columns>
+  </Table>
+  </Panel>
+       </layout:BlockLayoutCell>
+       </layout:BlockLayoutRow>
+       </layout:BlockLayout>
+       </layout:VerticalLayout>
+			<layout:VerticalLayout width="100%" >
+      <layout:BlockLayout >
+      <layout:BlockLayoutRow >
+      <layout:BlockLayoutCell title="User Manage">
+      <Panel >
  
   <Table >
   <items>
+  <ColumnListItem >
+  <cells>
+  <Text text="Ahmed Jilani Shaikh"></Text>
+  <Text text="Admin"></Text>
+  <ObjectStatus text="Active" state="Success"></ObjectStatus>
+  <HBox justifyContent="Center" alignItems="Center">
+  <Button icon="sap-icon://edit" type="Attention" press="EditUserNameHandler"></Button>
+  </HBox>
+  </cells>
+  </ColumnListItem>
   </items>
   <columns>
   <Column hAlign="Center">
@@ -69,19 +127,34 @@
   </columns>
   </Table>
   </Panel>
-   <Panel headerText="Application" class="sapUiSmallMarginTop">
-  <headerToolbar>
-  <OverflowToolbar >
-    <Title text="Application Settings"></Title>
+      </layout:BlockLayoutCell>
+      </layout:BlockLayoutRow>
+      <layout:BlockLayoutRow >
+      <layout:BlockLayoutCell title="Application Information">
+         <Panel >
  
-
-  </OverflowToolbar>
-  </headerToolbar>
- 
+ <form:SimpleForm layout="ColumnLayout"  labelSpanL="4" columnsL="2" columnsXL="2" columnsM="2">
+ <form:content>
+ <Label text="App Name"></Label>
+ <Text text="Personal Finance Tracker"></Text>
+ <Label text="Version"></Label>
+ <Text text="1.0.0"></Text>
+  <Label text="Developed By"></Label>
+  <Text text="Ahmed Shaikh"></Text>
+  <Label text="Environment"></Label>
+  <Text text="Development"/>
+ </form:content>
+ </form:SimpleForm>
   </Panel>
+      </layout:BlockLayoutCell>
+      </layout:BlockLayoutRow>
+      </layout:BlockLayout>
+      </layout:VerticalLayout>
+   
+
 				</f:mainContent>
 				<f:items>
-					<f:SidePanelItem icon="sap-icon://add" text="Add Category">
+					<f:SidePanelItem icon="sap-icon://business-by-design" text="Add Category">
 					<form:SimpleForm >
                     <form:content>
                     <Label text="Category Name"></Label>
@@ -90,8 +163,19 @@
                     <Select >
                     <core:Item text="Income"></core:Item>
                        <core:Item text="Expense"></core:Item>
-                          <core:Item text="Invest"></core:Item>
+                          <core:Item text="Other"></core:Item>
                     </Select>
+                    <Button text="Save"></Button>
+                    </form:content>
+                    </form:SimpleForm>
+					</f:SidePanelItem>
+          	<f:SidePanelItem icon="sap-icon://business-objects-experience" text="Add New Year">
+					<form:SimpleForm >
+                    <form:content>
+                    <Label text="Name"></Label>
+                    <Input ></Input>
+                    <Label text="Title"></Label>
+                    <Input ></Input>
                     <Button text="Save"></Button>
                     </form:content>
                     </form:SimpleForm>

@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+<Dialog title="Edit Your Wonderful Profile" contentWidth="300px" draggable="true" resizable="true">
+<content>
+<HBox justifyContent="SpaceAround" alignItems="Center" class="sapUiSmallMargin">
+<Avatar displaySize="L" id="ProfileImageID"></Avatar>
+<Select items="{AvatarProfile>/}" change="AvatarChangeHandlerEdit">
+<core:Item text="{AvatarProfile>AvatarName}" key="{AvatarProfile>key}"></core:Item>
+</Select>
+</HBox>
+<form:SimpleForm >
+<form:content>
+
+<Label text="Header Title"></Label>
+<TextArea rows="2"></TextArea>
+<Label text="Full Name"></Label>
+<Input ></Input>
+<Label text="Designation"></Label>
+<Input ></Input>
+<Label text="Phone Number"></Label>
+<Input ></Input>
+<Label text="Email"></Label>
+<Input ></Input>
+<Label text="Skills"></Label>
+<MultiInput  showValueHelp="false" ></MultiInput>
+<RangeSlider ></RangeSlider>
+<Label text="Experience"></Label>
+<StepInput ></StepInput>
+<Label text="Language"></Label>
+<MultiInput showValueHelp="false"></MultiInput>
+<Label text="Qualifications"></Label>
+<MultiInput showValueHelp="false" width="100%"></MultiInput>
+<Label text="About You"></Label>
+<TextArea rows="2"></TextArea>
+</form:content>
+</form:SimpleForm>
+</content>
+<beginButton>
+<Button text="Close"></Button>
+</beginButton>
+<endButton>
+<Button text="Save"></Button>
+</endButton>
+</Dialog>
+</core:FragmentDefinition>

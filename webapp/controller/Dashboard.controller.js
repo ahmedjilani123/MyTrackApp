@@ -4,7 +4,7 @@ sap.ui.define([
     "aj/sap/myexpenseapp/controller/BusyDialog/BusyD"
 ], (BaseController,Device,BusyD) => {
     "use strict";
-
+var GlobalData;
     return BaseController.extend("aj.sap.myexpenseapp.controller.Dashboard", {
         onInit() {
      
@@ -16,7 +16,11 @@ sap.ui.define([
         },
       
         NavigationPress(oEvent){
-            BusyD.show()
+            // if(GlobalData == oEvent.getParameter("item").getProperty("key")){
+            //   return;  
+            // }
+            // GlobalData = oEvent.getParameter("item").getProperty("key")
+            // BusyD.show()
             if(!Device.system.desktop){
   var oToolPage = this.byId("ToolpageID");
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());

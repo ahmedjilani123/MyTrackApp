@@ -29,7 +29,7 @@ sap.ui.define([
         Router.getRoute("Home").attachPatternMatched(this.ObjectRouterViewData,this );
         },
         ObjectRouterViewData(){
-  BusyD.hide();
+//   BusyD.hide();
         },
         AddContactHandler(){
             if(!this.AddContact){
@@ -133,14 +133,31 @@ onNavBackYear(){
 						id: oView.getId(),
 						name: "aj.sap.myexpenseapp.fragments.SeeAllNotice",
 						controller: this
-					}).then(function(Notice) {
+					})
+				}
+				this.Notice.then(function(Notice) {
 						oView.addDependent(Notice);
 						Notice.open()
 					});
-				}
 		},
 		onItemNoticeClose(){
 			MessageBox.confirm("Are you sure you want to delete ?");
+		},
+		ClickTilePress(oEvent){
+			
+			var RouterName =  oEvent.getSource().data("key")
+			var Router = this.getOwnerComponent().getRouter();
+			Router.navTo('AnalyticTran',{
+				type:'Income',
+				year:'2024'	
+			});
+		},
+		NavToMainTransactionPress(oEvent){
+			var Router = this.getOwnerComponent().getRouter();
+			Router.navTo('AnalyticTran',{
+				type:'',
+				year:'2024'	
+			});
 		}
     });
 });
