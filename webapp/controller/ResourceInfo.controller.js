@@ -2,8 +2,14 @@ sap.ui.define([
  "aj/sap/myexpenseapp/controller/BaseController",
   "aj/sap/myexpenseapp/controller/BusyDialog/BusyD",
   "sap/ui/core/Fragment",
-  	'sap/m/Token'
-], (BaseController,BusyD,Fragment,Token) => {
+  "sap/ui/model/json/JSONModel",
+  	'sap/m/Token',
+    "sap/m/Dialog",
+    "sap/ui/layout/form/SimpleForm",
+    "sap/m/Label",
+    "sap/m/Input",
+    "sap/m/MessageBox"
+], (BaseController,BusyD,Fragment,JSONModel,Token,Dialog,SimpleForm,Label,Input,MessageBox) => {
     "use strict";
 
     return BaseController.extend("aj.sap.myexpenseapp.controller.ResourceInfo", {
@@ -17,6 +23,8 @@ sap.ui.define([
   BusyD.hide();
         },
         EditProfileHandler(oEvent){
+            var getUserData = oEvent.getSource().getModel("UserDataM").getData();
+            var  TempUserModel = new JSONModel(getUserData[0]);
             var oView = this.getView();
             if(!this.EditProfile){
  this.EditProfile = Fragment.load({
@@ -26,32 +34,32 @@ sap.ui.define([
             })
             }
                 this.EditProfile.then(function(Dialog){
-                oView.addDependent(Dialog);
+                oView.addDependent(Dialog.setModel(TempUserModel,"TempUserModel"));
                  Dialog.open();
-  var oMultiInput1 = Dialog.getContent()[1].getContent()[11]; 
-  var oMultiInput2 = Dialog.getContent()[1].getContent()[16];
-   var oMultiInput3 = Dialog.getContent()[1].getContent()[18];
-			oMultiInput1.setTokens([]);
-            	var fnValidator = function(args){
-				var text = args.text;
-				return new Token({key: text, text: text});
+  
+  // imput source data array for token
+    var allTokenSource =[Dialog.getContent()[1].getContent()[11],Dialog.getContent()[1].getContent()[16],Dialog.getContent()[1].getContent()[18]];
+   var temItemArr=['Skills','Language','Qualification']; //json property name
+   temItemArr.forEach(function(itemset,index){
+     //split array for items like e.g 'sapui5','js'
+        var ItemSetArr = TempUserModel.getData()[itemset].split(",");
+         var _MainArr =[];
+        ItemSetArr.forEach(function(mitem){
+_MainArr.push(new Token({key: mitem, text: mitem}));
+        })
+        allTokenSource[index].setTokens(_MainArr);
+        _MainArr=[];
+   })
+    // add validator for new items
+   allTokenSource.forEach(function(items){
+            	var skilsset = function(args){
+				var textSkills = args.text;
+				return new Token({key: textSkills, text: textSkills});
 			};
-
-			oMultiInput1.addValidator(fnValidator);
-            oMultiInput2.setTokens([]);
-            	var fnValidator = function(args){
-				var text = args.text;
-				return new Token({key: text, text: text});
-			};
-
-			oMultiInput2.addValidator(fnValidator);
-              oMultiInput3.setTokens([]);
-            	var fnValidator = function(args){
-				var text = args.text;
-				return new Token({key: text, text: text});
-			};
-
-			oMultiInput3.addValidator(fnValidator);
+             items.addValidator(skilsset);
+   })
+			
+          
                
             })
           
@@ -59,8 +67,106 @@ sap.ui.define([
         AvatarChangeHandlerEdit(oEvent){
             var getValue = oEvent.getSource().getSelectedItem().getBindingContext("AvatarProfile").getObject().AvatarImage;
             this.getView().byId("ProfileImageID").setSrc('.'+getValue)
+        },
+        CloseEditProfileResourceHandler(oEvent){
+            oEvent.getSource().getParent().close();
+            var tempModel = oEvent.getSource().getParent().getModel("TempUserModel");
+            tempModel.setData({});
+            tempModel.refresh();
+        },
+        EditResourceHandler(oEvent){
+            var ItemTable = this.getView().byId("IncomeResourceTableID");
+            var getSelectItem = ItemTable.getSelectedItem();
+            if(!getSelectItem){
+                sap.m.MessageToast.show("Please select any one record to edit");
+                return;
+            }
+            var oView = this.getView();
+            if(!this.EditResource){
+    this.EditResource = Fragment.load({
+                        	name: "aj.sap.myexpenseapp.fragments.IncomeResource.EditResource",
+                        controller: this
+                })
+
         }
-       
+                this.EditResource.then(function(Dialog){
+var oTempModel = new JSONModel(getSelectItem.getBindingContext("ResourceM").getObject());
+                oView.addDependent(Dialog.setModel(oTempModel,"TempUserModel"));
+                 Dialog.open();
+            })
+        },
+        DeleteResourceHandler(oEvent){
+            var ItemTable = this.getView().byId("IncomeResourceTableID");
+            var getSelectItem = ItemTable.getSelectedItem();
+            if(!getSelectItem){
+                sap.m.MessageToast.show("Please select any one record to delete");
+                return;
+            }
+            MessageBox.confirm("Are you sure you want to delete this record?",{
+                title: "Confirm Deletion",
+                onClose: function(oAction){
+                    if(oAction==="OK"){
+  var getIndex = ItemTable.indexOfItem(getSelectItem);
+            var getModel = ItemTable.getModel("ResourceM");
+            var getData = getModel.getData();
+            getData.splice(getIndex,1);
+            getModel.setData(getData);
+            getModel.refresh();
+            sap.m.MessageToast.show("Record deleted successfully");
+                    }
+                }})
+          
+        },
+        AddResourceHandler(oEvent){
+            var oView = this.getView();
+            var that=this;
+            if(!this.AddResource){
+                this.AddResource = new Dialog({
+                    title: "Add Resource",
+                    resizable:true,
+                    draggable:true,
+                    content: new SimpleForm({
+                        layout: "ColumnLayout",
+                        columnsL: 2,
+                        columnsM: 2,
+                        columnsS: 1,
+                        content: [
+                            new Label({text: "Job Title"}),
+                            new Input({value: "{TempUserModel>/JobTitle}"}),
+                            new Label({text: "Organization Name"}),
+                            new Input({value: "{TempUserModel>/Organization}"}),
+                            new Label({text: "Expertise Area"}),
+                            new Input({value: "{TempUserModel>/ExpertiseArea}"}),
+                            new Label({text: "Experience"}),
+                            new Input({value: "{TempUserModel>/Experience}"}),
+                            new Label({text: "Payer Name"}),
+                            new Input({value: "{TempUserModel>/PayerName}"}),
+                            new Label({text: "Location"}),
+                            new Input({value: "{TempUserModel>/Location}"}),
+                            new Label({text: "Payer Name"}),
+                            new Input({value: "{TempUserModel>/PayerName}"}),
+                            new Label({text: "Salary"}),
+                            new Input({value: "{TempUserModel>/Salary}",type: "Number"})
+
+                        ]}),
+                    beginButton: new sap.m.Button({
+                        text: "Close",
+                        press: this.CloseEditProfileResourceHandler.bind(that)
+                    }),
+                    endButton: new sap.m.Button({
+                        text: "Save",
+                        type: "Emphasized",
+                        press:this.SaveResourceDataHandler.bind(that)
+                    })
+                })
+        }
+        this.AddResource.setModel(new JSONModel({}),"TempUserModel");
+        oView.addDependent(this.AddResource);
+        this.AddResource.open();
+    },
+    SaveResourceDataHandler(oEvent){
+
+    }
 
     });
 });

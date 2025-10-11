@@ -27,7 +27,15 @@
               "AvatarProfileM":{
                 "uri": "./model/AvatarList.json",
                 "type": "JSON"
-              }
+              },
+              "UserDataMain":{
+                "uri": "./model/UserData.json",
+                "type": "JSON"
+              },
+                "MainDataResource":{
+                    "uri": "./model/Resource.json",
+                    "type": "JSON"
+                }
         }
     },
     "sap.ui": {
@@ -80,6 +88,14 @@
             "AvatarProfile":{
                   "type": "sap.ui.model.json.JSONModel",
                   "dataSource": "AvatarProfileM"
+            },
+            "UserDataM":{
+                  "type": "sap.ui.model.json.JSONModel",
+                  "dataSource": "UserDataMain"
+            },
+            "ResourceM":{
+                  "type": "sap.ui.model.json.JSONModel",
+                  "dataSource": "MainDataResource"
             }
         },
         "resources": {

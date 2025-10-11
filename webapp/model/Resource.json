@@ -1,0 +1,42 @@
+[
+    {
+        "JobTitle": "UI5 Developer",
+        "Organization": "SAP Labs",
+        "Location": "Bangalore, India",
+        "ExpertiseArea": "Frontend (UI5, JS, OData)",
+        "Experience": "2.7",
+        "PayerName": "SAP",
+        "Salary": "120000",
+        "Currency": "INR"
+    },
+    {
+        "JobTitle": "Fiori Consultant",
+        "Organization": "Infosys",
+        "Location": "Pune, India",
+        "ExpertiseArea": "SAP Fiori, OData, Gateway Services",
+        "Experience": "3.5",
+        "PayerName": "Infosys",
+        "Salary": "95000",
+        "Currency": "INR"
+    },
+    {
+        "JobTitle": "Senior SAPUI5 Developer",
+        "Organization": "Tech Mahindra",
+        "Location": "Hyderabad, India",
+        "ExpertiseArea": "SAPUI5, JavaScript, CDS Views, CAPM",
+        "Experience": "5.2",
+        "PayerName": "Tech Mahindra",
+        "Salary": "150000",
+        "Currency": "INR"
+    },
+    {
+        "JobTitle": "Fiori Full Stack Developer",
+        "Organization": "Tata Consultancy Services",
+        "Location": "Chennai, India",
+        "ExpertiseArea": "SAP Fiori Elements, Node.js, CAPM, HANA DB",
+        "Experience": "4.0",
+        "PayerName": "TCS",
+        "Salary": "130000",
+        "Currency": "INR"
+    }
+]

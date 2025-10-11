@@ -19,7 +19,7 @@
                 <obj:expandedHeading>
                     <HBox>
                         <Title
-                            text="Ahmed Shaikh"
+                            text="{UserDataM>/0/FullName}"
                             wrapping="true"
                         />
                         <ObjectMarker
@@ -35,30 +35,30 @@
                         alignItems="Center"
                     >
                         <Avatar
-                            src="../Images/profile.jpg"
+                            src="./../images/avatar.png"
                             class="sapUiTinyMarginEnd" active="true" press="AvatarPress"
                         />
                         <Title
-                            text="Ahmed Shaikh"
+                            text="{UserDataM>/0/FullName}"
                             wrapping="true"
                         />
                     </FlexBox>
                 </obj:snappedHeading>
 
                 <obj:expandedContent>
-                    <Text text="SAPUI5 Developer" />
+                    <Text text="{UserDataM>/0/Designation}" />
                 </obj:expandedContent>
 
                 <obj:snappedContent>
-                    <Text text="SAPUI5 Developer" />
+                    <Text text="{UserDataM>/0/Designation}" />
                 </obj:snappedContent>
 
                 <obj:snappedTitleOnMobile>
-                    <Title text="SAPUI5 Developer" />
+                    <Title text="{UserDataM>/0/Designation}" />
                 </obj:snappedTitleOnMobile>
 
                 <obj:actions>
-                    <Button text="Edit Profile" press="EditProfileHandler"
+                    <Button text="Edit Profile" fieldGroupIds="{UserDataM>/0/Email}" press="EditProfileHandler"
                        icon="sap-icon://user-edit"
                     />
                    
@@ -76,17 +76,15 @@
                 />
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                     <Text
-                        text="Passionate about crafting seamless SAPUI5 applications "
+                        text="{UserDataM>/0/HeaderTitle}"
                         wrapping="true"
                     />
-                    <Text
-                        text="that elevate user experiences. Always learning, always innovating."
-                    />
+                   <Text text="asdfasdfasjdfl asfj slfj aflaj flsdf sldf asf sdf"></Text>
                     <VBox>
-                        <Label text="SAP Fiori/UI5" />
+                        <Label text="{UserDataM>/0/Skills}" />
                         <ProgressIndicator
-                            percentValue="85"
-                            displayValue="85%"
+                            percentValue="{UserDataM>/0/PercentValue}"
+                            displayValue="{UserDataM>/0/DisplayValue}"
                             state="Success"
                         />
                     </VBox>
@@ -97,20 +95,20 @@
                         <ObjectStatus
                             icon="sap-icon://da"
                             title="Skills"
-                            text="SAP BTP,SAP CAPM,Fiori/UI5"
+                            text="{UserDataM>/0/Skills}"
                         />
                         <ObjectStatus
                             title="Country"
-                            text="India"
+                            text="{UserDataM>/0/Country}"
                         />
                         <ObjectStatus
                             title="Language"
-                            text="English,Hindi"
+                            text="{UserDataM>/0/Language}"
                         />
                         <ObjectStatus
                             icon="sap-icon://call"
                             title="Mobile Number"
-                            text="+91-63530-38823"
+                            text="{UserDataM>/0/Mobile}"
                         />
                     </layout:VerticalLayout>
                 </layout:VerticalLayout>
@@ -119,17 +117,17 @@
                         <ObjectStatus
                             icon="sap-icon://end-user-experience-monitoring"
                             title="Experience"
-                            text="2.7 years"
+                            text="{UserDataM>/0/Experience} Years"
                         />
                         <ObjectStatus
                             icon="sap-icon://study-leave"
                             title="Qualification"
-                            text="Bachelor of Technology (CE)"
+                            text="{UserDataM>/0/Qualification}"
                         />
                         <ObjectStatus
                             icon="sap-icon://email"
                             title="Email"
-                            text="shaikhahmedjilani7860@gmail.com"
+                            text="{UserDataM>/0/Email}"
                         />
                     </layout:VerticalLayout>
                 </layout:VerticalLayout>
@@ -146,7 +144,7 @@
                     titleUppercase="false"
                 >
                     <Text
-                        text="I strive to apply my programming skills and software development experience to contribute to a forward-thinking tech team and create innovative solutions. Proficient in SAP BTP, CAPM, Node.js, and JavaScript and other web technologies."
+                        text="{UserDataM>/0/Objective}"
                     />
                 </obj:ObjectPageSubSection>
             </obj:ObjectPageSection>
@@ -159,17 +157,17 @@
                     title="Income Resource Details"
                     titleUppercase="false"
                 >
-                  <Table mode="SingleSelectLeft">
+                  <Table mode="SingleSelectLeft" id="IncomeResourceTableID" items="{ResourceM>/}">
   <items>
   <ColumnListItem >
   <cells>
-  <Text text="Jr SAP UI5/Fiori Consultant"></Text>
-  <Text text="Daffodils Info Solutions Pvt Ltd"></Text>
-<Text text="Frontend (UI5, JS, OData)"></Text>
-  <Text text="3 Years"></Text>
-  <Text text="Ramesh Kumar"></Text>
+  <Text text="{ResourceM>JobTitle}"></Text>
+  <Text text="{ResourceM>Organization}"></Text>
+<Text text="{ResourceM>ExpertiseArea}"></Text>
+  <Text text="{ResourceM>Experience}"></Text>
+  <Text text="{ResourceM>PayerName}"></Text>
   
-  <ObjectStatus text="₹ 11,000" state="Success"></ObjectStatus>
+  <ObjectStatus text="₹ {ResourceM>Salary}" state="Success"></ObjectStatus>
   </cells>
   </ColumnListItem>
   </items>
@@ -184,7 +182,7 @@
   <Label text="Organization Name"></Label>
   </header>
   </Column>
-    <Column hAlign="Center"  demandPopin="true" 	minScreenWidth="Tablet">
+    <Column hAlign="Begin"  demandPopin="true" 	minScreenWidth="Tablet">
   <header>
   <Label text="Expertise Area"></Label>
   </header>
@@ -195,7 +193,7 @@
   </header>
   </Column>
   
-   <Column hAlign="Center"  demandPopin="true" 	minScreenWidth="Tablet">
+   <Column hAlign="Begin"  demandPopin="true" 	minScreenWidth="Tablet">
   <header>
   <Label text="Payer Name"></Label>
   </header>
@@ -216,9 +214,9 @@
         <obj:footer>
         <OverflowToolbar >
         <ToolbarSpacer ></ToolbarSpacer>
-        <Button text="Delete" type="Reject" icon="sap-icon://sys-cancel"></Button>
-        <Button text="Edit" type="Attention" icon="sap-icon://developer-settings"></Button>
-          <Button text="Add Resource" type="Ghost"
+        <Button text="Delete" type="Reject" icon="sap-icon://sys-cancel" press="DeleteResourceHandler"></Button>
+        <Button text="Edit" type="Attention" icon="sap-icon://developer-settings" press="EditResourceHandler"></Button>
+          <Button text="Add Resource" type="Ghost" press="AddResourceHandler"
                        icon="sap-icon://cart-4"
                     />
         </OverflowToolbar>

@@ -1,0 +1,22 @@
+[
+    {
+    "FullName": "Ahmed Shaikh",
+    "Designation": "SAPUI5 Developer",
+    "AvatarKey": "07",
+        "AvatarImage": "/images/avatar.png",
+    "HeaderTitle": "Passionate about crafting seamless SAPUI5 applications that elevate user experiences. Always learning, always innovating.",
+      "PercentValue": 85,
+      "DisplayValue": "85%",
+      "State": "Success",
+      "Skills": "SAP BTP, SAP CAPM, Fiori/UI5",
+      "Country": "India",
+      "Language": "English, Hindi",
+      "Mobile": "+91-63530-38823",
+      "Experience": "2.7",
+      "Qualification": "Bachelor of Technology (CE)",
+      "Email": "shaikhahmedjilani7860@gmail.com",
+      "Password": "Admin@123",
+      "ConfirmPassword": "Admin@123",
+    "Objective": "I strive to apply my programming skills and software development experience to contribute to a forward-thinking tech team and create innovative solutions. Proficient in SAP BTP, CAPM, Node.js, and JavaScript and other web technologies."
+  }
+]

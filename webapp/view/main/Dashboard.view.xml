@@ -13,7 +13,7 @@
    <BadgeCustomData key="badge" value="2"></BadgeCustomData> 
     </customData>
     </Button>
-     <Avatar src="../images/avatar.png" displaySize="XS" displayShape="Circle"></Avatar>
+     <Avatar src="../images/avatar.png" displaySize="XS" displayShape="Circle" press="MainAvatarHandler"></Avatar>
 </tnt:ToolHeader>
 </tnt:header>
 <tnt:sideContent >

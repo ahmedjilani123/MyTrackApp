@@ -1,8 +1,9 @@
 sap.ui.define([
     "aj/sap/myexpenseapp/controller/BaseController",
     "sap/ui/Device",
-    "aj/sap/myexpenseapp/controller/BusyDialog/BusyD"
-], (BaseController,Device,BusyD) => {
+    "aj/sap/myexpenseapp/controller/BusyDialog/BusyD",
+    "sap/ui/core/Fragment"
+], (BaseController,Device,BusyD,Fragment) => {
     "use strict";
 var GlobalData;
     return BaseController.extend("aj.sap.myexpenseapp.controller.Dashboard", {
@@ -16,11 +17,7 @@ var GlobalData;
         },
       
         NavigationPress(oEvent){
-            // if(GlobalData == oEvent.getParameter("item").getProperty("key")){
-            //   return;  
-            // }
-            // GlobalData = oEvent.getParameter("item").getProperty("key")
-            // BusyD.show()
+         
             if(!Device.system.desktop){
   var oToolPage = this.byId("ToolpageID");
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
@@ -33,7 +30,21 @@ var GlobalData;
         	onSideNavButtonPress: function () {
 			var oToolPage = this.byId("ToolpageID");
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
-		}
+		},
+        MainAvatarHandler(oEvent){
+            var oView = this.getView();
+            if(!this.ProfileMain){
+                this.ProfileMain = Fragment.load({
+                    	id: oView.getId(),
+                        	name: "aj.sap.myexpenseapp.fragments.SignOut.ProfileMain",
+                        controller: this
+                })
+        }
+                this.ProfileMain.then(function(Dialog){
+                oView.addDependent(Dialog);
+                 Dialog.openBy(oEvent.getSource());
+            });
+    }
         	
     });
 });

@@ -1,41 +1,45 @@
-<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
-<Dialog title="Edit Your Wonderful Profile" contentWidth="300px" draggable="true" resizable="true">
+<core:FragmentDefinition xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+<Dialog title="Edit Your Wonderful Profile"  draggable="true" resizable="true" class="sapUiResponsiveContentPadding">
 <content>
-<HBox justifyContent="SpaceAround" alignItems="Center" class="sapUiSmallMargin">
-<Avatar displaySize="L" id="ProfileImageID"></Avatar>
-<Select items="{AvatarProfile>/}" change="AvatarChangeHandlerEdit">
+<f:Card width="100%" class="HeaderCssTt">
+<f:content>
+<HBox width="100%" justifyContent="SpaceAround"  alignItems="Center">
+<Avatar src="./{TempUserModel>/AvatarImage}" displaySize="L" id="ProfileImageID" class="sapUiSmallMarginTopBottom"></Avatar>
+<Select items="{AvatarProfile>/}" change="AvatarChangeHandlerEdit" selectedKey="{TempUserModel>/AvatarKey}" >
 <core:Item text="{AvatarProfile>AvatarName}" key="{AvatarProfile>key}"></core:Item>
 </Select>
 </HBox>
-<form:SimpleForm >
+</f:content>
+</f:Card>
+<form:SimpleForm layout="ColumnLayout" columnsL="2" columnsM="2" >
 <form:content>
 
 <Label text="Header Title"></Label>
-<TextArea rows="2"></TextArea>
+<TextArea rows="2" value="{TempUserModel>/HeaderTitle}"></TextArea>
 <Label text="Full Name"></Label>
-<Input ></Input>
+<Input value="{TempUserModel>/FullName}"></Input>
 <Label text="Designation"></Label>
-<Input ></Input>
+<Input value="{TempUserModel>/Designation}"></Input>
 <Label text="Phone Number"></Label>
-<Input ></Input>
+<Input value="{TempUserModel>/Mobile}"></Input>
 <Label text="Email"></Label>
-<Input ></Input>
+<Input value="{TempUserModel>/Email}"></Input>
 <Label text="Skills"></Label>
 <MultiInput  showValueHelp="false" ></MultiInput>
-<RangeSlider ></RangeSlider>
+<Slider min="0" max="100" value="{TempUserModel>/PercentValue}" ></Slider>
 <Label text="Experience"></Label>
-<StepInput ></StepInput>
+<StepInput value="{TempUserModel>/Experience}"></StepInput>
 <Label text="Language"></Label>
-<MultiInput showValueHelp="false"></MultiInput>
-<Label text="Qualifications"></Label>
-<MultiInput showValueHelp="false" width="100%"></MultiInput>
+<MultiInput showValueHelp="false" ></MultiInput>
+<Label text="Qualification"></Label>
+<MultiInput showValueHelp="false" width="100%" ></MultiInput>
 <Label text="About You"></Label>
-<TextArea rows="2"></TextArea>
+<TextArea rows="2" value="{TempUserModel>/Objective}"></TextArea>
 </form:content>
 </form:SimpleForm>
 </content>
 <beginButton>
-<Button text="Close"></Button>
+<Button text="Close" press="CloseEditProfileResourceHandler"></Button>
 </beginButton>
 <endButton>
 <Button text="Save"></Button>
