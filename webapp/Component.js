@@ -17,6 +17,16 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
 
             // set the device model
+               var oModel = this.getModel("mainService");
+      
+
+      // optional: test if metadata loads
+      oModel.attachMetadataLoaded(function () {
+        console.log("✅ Metadata successfully loaded");
+      });
+      oModel.attachMetadataFailed(function (oEvent) {
+        console.error("❌ Metadata failed", oEvent.getParameters());
+      });
             this.setModel(models.createDeviceModel(), "device");
  var omdeol =this.getModel("ColumnLayout");
                 omdeol.setData({FLayout:"OneColumn"})
