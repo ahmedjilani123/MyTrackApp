@@ -7,22 +7,21 @@ sap.ui.define([
 
     return BaseController.extend("aj.sap.myexpenseapp.controller.Initial", {
         onInit() {
-            var oModelm = new sap.ui.model.odata.v2.ODataModel("https://trackerfinance.onrender.com/odata/v2/trackService/", {
+            var MainModel = new sap.ui.model.odata.v2.ODataModel("https://trackerfinance.onrender.com/odata/v2/trackService/", {
   useBatch: false
 });
 
-  oModelm.attachMetadataLoaded(function () {
+  MainModel.attachMetadataLoaded(function () {
     console.log("✅ Metadata successfully loaded");
     MessageToast.show("Metadata loaded successfully!");
   });
 
-  oModelm.attachMetadataFailed(function (oEvent) {
+  MainModel.attachMetadataFailed(function (oEvent) {
     console.error("❌ Metadata failed to load", oEvent.getParameters());
     MessageToast.show("Failed to load metadata!");
   });
 
-  // Optional: force metadata loading explicitly
-  oModelm.loadMetadata();
+
          var Router = this.getOwnerComponent().getRouter();
         Router.getRoute("TransactDetail").attachPatternMatched(this.ObjectRouterViewData,this );
         },
