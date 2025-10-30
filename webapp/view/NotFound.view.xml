@@ -1,0 +1,13 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="aj.sap.myexpenseapp.controller.NotFound"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:My="aj.sap.myexpenseapp.utils"
+    xmlns="sap.m">
+    <Page id="NotFound" class="sapUiContentPadding" title="{i18n>title}" showHeader="false"> 
+  <content>
+   	<IllustratedMessage  illustrationSize="Auto" enableVerticalResponsiveness="true" illustrationType="sapIllus-PageNotFound">
+					<additionalContent>
+						<Button text="Back To Login" />
+					</additionalContent>
+				</IllustratedMessage>
+                </content>
+    </Page>
+</mvc:View>

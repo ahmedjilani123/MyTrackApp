@@ -6,7 +6,7 @@
 <HBox width="100%" justifyContent="SpaceAround"  alignItems="Center">
 <Avatar src="./{TempUserModel>/AvatarImage}" displaySize="L" id="ProfileImageID" class="sapUiSmallMarginTopBottom"></Avatar>
 <Select items="{AvatarProfile>/}" change="AvatarChangeHandlerEdit" selectedKey="{TempUserModel>/AvatarKey}" >
-<core:Item text="{AvatarProfile>AvatarName}" key="{AvatarProfile>key}"></core:Item>
+<core:Item text="{AvatarProfile>AvatarName}" key="{AvatarProfile>AvatarKey}"></core:Item>
 </Select>
 </HBox>
 </f:content>
@@ -42,7 +42,7 @@
 <Button text="Close" press="CloseEditProfileResourceHandler"></Button>
 </beginButton>
 <endButton>
-<Button text="Save"></Button>
+<Button text="Save" press="EditSaveUserInfoHandler"></Button>
 </endButton>
 </Dialog>
 </core:FragmentDefinition>

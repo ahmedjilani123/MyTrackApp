@@ -11,7 +11,7 @@
 		</beginButton>
 		
 		<content>
-			<Title text="AhmedShaikh@gmail.com"></Title>
+			<Title text="{DashboardM>/Email}"></Title>
 		</content>
 	</ResponsivePopover>
 </core:FragmentDefinition>

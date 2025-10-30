@@ -7,7 +7,7 @@
    <HBox  justifyContent="SpaceBetween" alignItems="Center" alignContent="Center" width="100%">
    <VBox class="sapUiSmallMargin">
    <Text text="October 7 2025" class="TextClassHeader sapUiSmallMarginBottom" ></Text>
-   <Title text="Welcome Back ! Ahmed Shaikh" level="H3" titleStyle="H3" class="TextClassHeader"></Title>
+   <Title text="Welcome Back ! {DashboardM>/FullName}" level="H3" titleStyle="H3" class="TextClassHeader"></Title>
    <Text text="Always Stay Updated In Your Finance Portal" class="TextClassHeader"></Text>
    </VBox>
    <Image src="./../images/Headerimage.png"></Image>
@@ -32,7 +32,7 @@
 <VBox width="100%" justifyContent="Center" alignItems="Center" alignContent="Center">
 	
 <Image src="./../images/Imcome.png" width="3rem"  height="2.25rem"  class="sapUiMediumMarginTop"/>
-<Title text="$10000"></Title>
+<Title text="₹ 10500"></Title>
 <Label text="Total Income" ></Label>
 </VBox>
 </f:GridListItem>
@@ -40,7 +40,7 @@
 <VBox width="100%" justifyContent="Center" alignItems="Center" alignContent="Center">
 	
 <Image src="./../images/OutPut.png" width="3rem"  height="2.25rem"  class="sapUiSmallMarginBeginEnd sapUiMediumMarginTop"/>
-<Title text="$10000"></Title>
+<Title text="₹ 5010"></Title>
 <Label text="Total Expense" class="sapUiMediumMarginBottom"></Label>
 </VBox>
 </f:GridListItem>
@@ -48,7 +48,7 @@
 <VBox width="100%" justifyContent="Center" alignItems="Center" alignContent="Center">
 	
 <Image src="./../images/OtherIncome.png" width="3rem"  height="2.25rem" class="sapUiSmallMarginBeginEnd sapUiMediumMarginTop"/>
-<Title text="$10000"></Title>
+<Title text="₹ 4500"></Title>
 <Label text="Other Income" class="sapUiMediumMarginBottom"></Label>
 </VBox>
 </f:GridListItem>

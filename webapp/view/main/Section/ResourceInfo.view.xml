@@ -19,7 +19,7 @@
                 <obj:expandedHeading>
                     <HBox>
                         <Title
-                            text="{UserDataM>/0/FullName}"
+                            text="{UserDataM>/FullName}"
                             wrapping="true"
                         />
                         <ObjectMarker
@@ -35,30 +35,30 @@
                         alignItems="Center"
                     >
                         <Avatar
-                            src="./../images/avatar.png"
+                            src="./.{UserDataM>/AvatarImage}"
                             class="sapUiTinyMarginEnd" active="true" press="AvatarPress"
                         />
                         <Title
-                            text="{UserDataM>/0/FullName}"
+                            text="{UserDataM>/FullName}"
                             wrapping="true"
                         />
                     </FlexBox>
                 </obj:snappedHeading>
 
                 <obj:expandedContent>
-                    <Text text="{UserDataM>/0/Designation}" />
+                    <Text text="{UserDataM>/Designation}" />
                 </obj:expandedContent>
 
                 <obj:snappedContent>
-                    <Text text="{UserDataM>/0/Designation}" />
+                    <Text text="{UserDataM>/Designation}" />
                 </obj:snappedContent>
 
                 <obj:snappedTitleOnMobile>
-                    <Title text="{UserDataM>/0/Designation}" />
+                    <Title text="{UserDataM>/Designation}" />
                 </obj:snappedTitleOnMobile>
 
                 <obj:actions>
-                    <Button text="Edit Profile" fieldGroupIds="{UserDataM>/0/Email}" press="EditProfileHandler"
+                    <Button text="Edit Profile" fieldGroupIds="{UserDataM>/Email}" press="EditProfileHandler"
                        icon="sap-icon://user-edit"
                     />
                    
@@ -71,20 +71,20 @@
             <FlexBox wrap="Wrap">
                 <Avatar
                     class="sapUiSmallMarginEnd"
-                    src="./../images/avatar.png"
+                    src="./.{UserDataM>/AvatarImage}"
                     displaySize="L" active="true" showBorder="true" press="AvatarPress"
                 />
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                     <Text
-                        text="{UserDataM>/0/HeaderTitle}"
+                        text="{UserDataM>/HeaderTitle}"
                         wrapping="true"
                     />
                    <Text text="asdfasdfasjdfl asfj slfj aflaj flsdf sldf asf sdf"></Text>
                     <VBox>
-                        <Label text="{UserDataM>/0/Skills}" />
+                        <Label text="{UserDataM>/Skills}" />
                         <ProgressIndicator
-                            percentValue="{UserDataM>/0/PercentValue}"
-                            displayValue="{UserDataM>/0/DisplayValue}"
+                            percentValue="{UserDataM>/PercentValue}"
+                            displayValue="{UserDataM>/DisplayValue}"
                             state="Success"
                         />
                     </VBox>
@@ -95,20 +95,20 @@
                         <ObjectStatus
                             icon="sap-icon://da"
                             title="Skills"
-                            text="{UserDataM>/0/Skills}"
+                            text="{UserDataM>/Skills}"
                         />
                         <ObjectStatus
                             title="Country"
-                            text="{UserDataM>/0/Country}"
+                            text="{UserDataM>/Country}"
                         />
                         <ObjectStatus
                             title="Language"
-                            text="{UserDataM>/0/Language}"
+                            text="{UserDataM>/Language}"
                         />
                         <ObjectStatus
                             icon="sap-icon://call"
                             title="Mobile Number"
-                            text="{UserDataM>/0/Mobile}"
+                            text="{UserDataM>/Mobile}"
                         />
                     </layout:VerticalLayout>
                 </layout:VerticalLayout>
@@ -117,17 +117,17 @@
                         <ObjectStatus
                             icon="sap-icon://end-user-experience-monitoring"
                             title="Experience"
-                            text="{UserDataM>/0/Experience} Years"
+                            text="{UserDataM>/Experience} Years"
                         />
                         <ObjectStatus
                             icon="sap-icon://study-leave"
                             title="Qualification"
-                            text="{UserDataM>/0/Qualification}"
+                            text="{UserDataM>/Qualification}"
                         />
                         <ObjectStatus
                             icon="sap-icon://email"
                             title="Email"
-                            text="{UserDataM>/0/Email}"
+                            text="{UserDataM>/Email}"
                         />
                     </layout:VerticalLayout>
                 </layout:VerticalLayout>
@@ -144,7 +144,7 @@
                     titleUppercase="false"
                 >
                     <Text
-                        text="{UserDataM>/0/Objective}"
+                        text="{UserDataM>/Objective}"
                     />
                 </obj:ObjectPageSubSection>
             </obj:ObjectPageSection>

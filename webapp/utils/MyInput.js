@@ -6,6 +6,7 @@ sap.ui.define([
     return Control.extend("aj.sap.myexpenseapp.utils.MyButton", {
         metadata: {
             properties: {
+                type:{ type: "string", defaultValue: "text" },
                 value: { type: "string", defaultValue: "" },
                 placeholder: { type: "string", defaultValue: "" },
                  width: { type: "sap.ui.core.CSSSize", defaultValue: "auto" },
@@ -38,7 +39,7 @@ sap.ui.define([
         },
             renderer: function (oRM, oControl) {
                 oRM.openStart("input", oControl)
-                oRM.attr("type", "text"); 
+                oRM.attr("type", oControl.getType()); 
                  oRM.style("width", oControl.getWidth());
                   oRM.style("height", oControl.getHeight());
                 oRM.attr("placeholder", oControl.getPlaceholder()); 

@@ -12,8 +12,12 @@ var GlobalData;
          var Router = this.getOwnerComponent().getRouter();
         Router.getRoute("RouteDashboard").attachPatternMatched(this.ObjectRouterViewData,this );
         },
-        ObjectRouterViewData(){
+        ObjectRouterViewData(oEvent){
+            console.log(oEvent);
+            $.sap.UserID=oEvent.getParameter("arguments").id;
   BusyD.hide();
+    this._getUserDataMethod($.sap.UserID);
+
         },
       
         NavigationPress(oEvent){
@@ -25,7 +29,9 @@ var GlobalData;
           
           var RouterName =  oEvent.getParameter("item").getProperty("key")
             var Router = this.getOwnerComponent().getRouter();
-            Router.navTo(RouterName)
+            Router.navTo(RouterName, {
+        id:$.sap.UserID
+    })
         },
         	onSideNavButtonPress: function () {
 			var oToolPage = this.byId("ToolpageID");
@@ -44,6 +50,13 @@ var GlobalData;
                 oView.addDependent(Dialog);
                  Dialog.openBy(oEvent.getSource());
             });
+    },
+    LogOutPress(){
+        var Router = this.getOwnerComponent().getRouter();
+        Router.navTo("RouteInitial");
+    },
+    welcome(){
+        sap.m.MessageToast.show("Logo press go to Dashboard");
     }
         	
     });

@@ -25,11 +25,22 @@ sap.ui.define([
                         }
                     }
                 })
+
+				
           var Router = this.getOwnerComponent().getRouter();
         Router.getRoute("Home").attachPatternMatched(this.ObjectRouterViewData,this );
         },
         ObjectRouterViewData(){
 //   BusyD.hide();
+var Model = this.getOwnerComponent().getModel("mainService");
+Model.read(`/Users('${$.sap.UserID}')`,{
+	success:function(odata){
+console.log(odata)
+	},
+	error:function(err){
+		console.log(err)
+	}
+})
         },
         AddContactHandler(){
             if(!this.AddContact){

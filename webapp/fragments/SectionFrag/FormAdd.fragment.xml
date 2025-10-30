@@ -24,8 +24,8 @@
         <obj:expandedHeading>
             <VBox>
                 <Title
-                    text="Add Income"
-                    level="H1"
+                    text="{TempModel>/Title}"
+                    level="H1" id="formTitleExIn"
                     wrapping="true"
                     class="sapUiSmallMarginBottom" />
                 <Text
@@ -40,17 +40,17 @@
     </obj:ObjectPageDynamicHeaderTitle>
 <form:SimpleForm >
 <form:content>
-<Label text="Amount"></Label>
-<Input type="Number" placeholder="e.g ₹ 1,000"></Input>
-<Label text="Category"></Label>
-<Select >
+<Label text="Amount" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Label>
+<Input type="Number" placeholder="e.g ₹ 1,000" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Input>
+<Label text="Category" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Label>
+<Select visible="{= ${TempModel>/Show} !== 'No' ? true : false}">
 <core:Item text="Income"></core:Item>
 </Select>
-<Label text="Business Partner"></Label>
-<Select >
+<Label text="Business Partner" visible="{= ${TempModel>/Show} === 'In' ? true : false}"></Label>
+<Select visible="{= ${TempModel>/Show} === 'In' ? true : false}">
 <core:Item text="Income"></core:Item>
 </Select>
-<Label text="title"></Label>
+<Label text="Title"></Label>
 <Input placeholder="e.g Salary" ></Input>
 <Label text="Description"></Label>
 <TextArea rows="2" placeholder="Enter few words"></TextArea>

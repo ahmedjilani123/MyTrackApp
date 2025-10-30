@@ -1,47 +1,47 @@
 [
     {
         "AvatarName": "Standard",
-        "key": "001",
+        "AvatarKey": "001",
         "AvatarImage": ""
     },
     {
         "AvatarName": "Master Girl",
-        "key": "002",
+        "AvatarKey": "002",
         "AvatarImage": "/images/masterGirl.png"
     },
     {
         "AvatarName": "Champion Girl",
-        "key": "004",
+        "AvatarKey": "004",
         "AvatarImage": "/images/GirlAvatar.png"
     },
     {
         "AvatarName": "Innovator Man",
-        "key": "003",
+        "AvatarKey": "003",
         "AvatarImage": "/images/BoyAvatar.png"
     },
     {
         "AvatarName": "Smart Girl",
-        "key": "05",
+        "AvatarKey": "05",
         "AvatarImage": "/images/AgeGirl.png"
     },
     {
         "AvatarName": "Boss Man",
-        "key": "06",
+        "AvatarKey": "06",
         "AvatarImage": "/images/Oldman.png"
     },
     {
         "AvatarName": "Legend",
-        "key": "08",
+        "AvatarKey": "08",
         "AvatarImage": "/images/AgeBoy.png"
     },
     {
         "AvatarName": "Simple Girl",
-        "key": "09",
+        "AvatarKey": "09",
         "AvatarImage": "/images/SimpleGirl.png"
     },
      {
         "AvatarName": "Simple Boy",
-        "key": "07",
+        "AvatarKey": "07",
         "AvatarImage": "/images/avatar.png"
     }
 ]
