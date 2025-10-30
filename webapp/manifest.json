@@ -50,7 +50,7 @@
         "type": "JSON"
       },
       "mainService": {
-        "uri": "https://trackerfinance.onrender.com/odata/v2/trackService/",
+        "uri": "https://trackerfinance.onrender.com/v2/trackService/",
         "type": "OData",
         "settings": {
           "annotations": [],
