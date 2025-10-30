@@ -7,7 +7,19 @@ sap.ui.define([
 
     return BaseController.extend("aj.sap.myexpenseapp.controller.Initial", {
         onInit() {
-           
+            var MainModel = new sap.ui.model.odata.v2.ODataModel("https://trackerfinance.onrender.com/odata/v2/trackService/", {
+  useBatch: false
+});
+
+  MainModel.attachMetadataLoaded(function () {
+    console.log("✅ Metadata successfully loaded");
+    MessageToast.show("Metadata loaded successfully!");
+  });
+
+  MainModel.attachMetadataFailed(function (oEvent) {
+    console.error("❌ Metadata failed to load", oEvent.getParameters());
+    MessageToast.show("Failed to load metadata!");
+  });
 
 
          var Router = this.getOwnerComponent().getRouter();
@@ -18,25 +30,6 @@ sap.ui.define([
         },
       async loginHandler(oEvent){
             try {
-                 var oData = {
-    Email: "ahmed@gmail.com",
-    Password: "Admin@123"
-  };
-
-  $.ajax({
-    url: "https://trackerfinance.onrender.com/odata/v2/trackService/UserLogin",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(oData),
-    success: function (response) {
-      sap.m.MessageToast.show("✅ User created successfully!");
-      console.log("Response:", response);
-    },
-    error: function (xhr, status, error) {
-      sap.m.MessageToast.show("❌ Failed to create user");
-      console.error("Error:", xhr.responseText);
-    }
-  });
                 var MainModel = this.getOwnerComponent().getModel("mainService");
                  let LoginInfoM = this.getOwnerComponent().getModel("LoginInfoM")
             let UserData = LoginInfoM.getData();
