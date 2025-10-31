@@ -170,21 +170,25 @@ sap.ui.define(
             },
           });
         },
-       ChangeResourceDataHander(oEvent) {
+      ChangeResourceDataHander(oEvent) {
   let data = oEvent.getSource().getModel("TempUserModel").getData();
 
+  // ✅ Validate required fields
   if (!data.JobTitle || !data.Organization || !data.Location || !data.Salary) {
     sap.m.MessageToast.show("Please fill all required fields before saving.");
     return;
   }
 
+  // ✅ Remove unwanted properties
   delete data.createdAt;
   delete data.createdBy;
   delete data.modifiedAt;
   delete data.modifiedBy;
   delete data.user;
   delete data.user_ID;
-  delete data.__metadata; 
+  delete data.__metadata; // sometimes appears from OData
+
+  // ✅ Prepare model for update
   let oModel = this.getOwnerComponent().getModel("mainService");
 
   oModel.update(`/IncomeResources('${data.ID}')`, data, {
@@ -197,6 +201,10 @@ sap.ui.define(
       console.error("❌ Update Error:", err);
     },
   });
+
+  console.log("📦 Final Payload Sent:", data);
+}
+,
         AddResourceHandler(oEvent) {
           var oView = this.getView();
           var that = this;
