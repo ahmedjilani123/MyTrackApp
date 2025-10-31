@@ -157,17 +157,17 @@
                     title="Income Resource Details"
                     titleUppercase="false"
                 >
-                  <Table mode="SingleSelectLeft" id="IncomeResourceTableID" items="{ResourceM>/}">
+                  <Table mode="SingleSelectLeft" id="IncomeResourceTableID" items="{UserDataM>/incomeResources/results}">
   <items>
   <ColumnListItem >
   <cells>
-  <Text text="{ResourceM>JobTitle}"></Text>
-  <Text text="{ResourceM>Organization}"></Text>
-<Text text="{ResourceM>ExpertiseArea}"></Text>
-  <Text text="{ResourceM>Experience}"></Text>
-  <Text text="{ResourceM>PayerName}"></Text>
+  <Text text="{UserDataM>JobTitle}"></Text>
+  <Text text="{UserDataM>Organization}"></Text>
+<Text text="{UserDataM>ExpertiseArea}"></Text>
+  <Text text="{UserDataM>Experience}"></Text>
+  <Text text="{UserDataM>PayerName}"></Text>
   
-  <ObjectStatus text="₹ {ResourceM>Salary}" state="Success"></ObjectStatus>
+  <ObjectStatus text="₹ {UserDataM>Salary}" state="Success"></ObjectStatus>
   </cells>
   </ColumnListItem>
   </items>

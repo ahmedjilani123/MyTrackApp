@@ -142,7 +142,7 @@ sap.ui.define(
           }
           this.EditResource.then(function (Dialog) {
             var oTempModel = new JSONModel(
-              getSelectItem.getBindingContext("ResourceM").getObject()
+              getSelectItem.getBindingContext("UserDataM").getObject()
             );
             oView.addDependent(Dialog.setModel(oTempModel, "TempUserModel"));
             Dialog.open();
@@ -160,7 +160,7 @@ sap.ui.define(
             onClose: function (oAction) {
               if (oAction === "OK") {
                 var getIndex = ItemTable.indexOfItem(getSelectItem);
-                var getModel = ItemTable.getModel("ResourceM");
+                var getModel = ItemTable.getModel("UserDataM");
                 var getData = getModel.getData();
                 getData.splice(getIndex, 1);
                 getModel.setData(getData);
@@ -170,6 +170,33 @@ sap.ui.define(
             },
           });
         },
+       ChangeResourceDataHander(oEvent) {
+  let data = oEvent.getSource().getModel("TempUserModel").getData();
+
+  if (!data.JobTitle || !data.Organization || !data.Location || !data.Salary) {
+    sap.m.MessageToast.show("Please fill all required fields before saving.");
+    return;
+  }
+
+  delete data.createdAt;
+  delete data.createdBy;
+  delete data.modifiedAt;
+  delete data.modifiedBy;
+  delete data.user;
+  delete data.user_ID;
+  delete data.__metadata; 
+  let oModel = this.getOwnerComponent().getModel("mainService");
+
+  oModel.update(`/IncomeResources('${data.ID}')`, data, {
+    success: function (odata) {
+      sap.m.MessageToast.show("Resource data updated successfully!");
+      console.log("✅ Update Success:", odata);
+    },
+    error: function (err) {
+      sap.m.MessageToast.show("Error updating resource data.");
+      console.error("❌ Update Error:", err);
+    },
+  });
         AddResourceHandler(oEvent) {
           var oView = this.getView();
           var that = this;

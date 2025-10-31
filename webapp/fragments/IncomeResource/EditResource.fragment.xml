@@ -26,7 +26,7 @@
 <Button text="Close" press="CloseEditProfileResourceHandler"></Button>
 </beginButton>
 <endButton>
-<Button text="Save"></Button>
+<Button text="Save" press="ChangeResourceDataHander"></Button>
 </endButton>
 </Dialog>
 </core:FragmentDefinition>
