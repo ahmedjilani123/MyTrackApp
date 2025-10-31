@@ -10,6 +10,7 @@ sap.ui.define(
     "sap/m/Label",
     "sap/m/Input",
     "sap/m/MessageBox",
+     "sap/m/MessageToast"
   ],
   (
     BaseController,
@@ -21,7 +22,8 @@ sap.ui.define(
     SimpleForm,
     Label,
     Input,
-    MessageBox
+    MessageBox,
+    MessageToast
   ) => {
     "use strict";
 
@@ -171,34 +173,34 @@ sap.ui.define(
           });
         },
       ChangeResourceDataHander(oEvent) {
+        BusyD.show();
   let data = oEvent.getSource().getModel("TempUserModel").getData();
 
-  // ✅ Validate required fields
-  if (!data.JobTitle || !data.Organization || !data.Location || !data.Salary) {
+  if (!data.JobTitle || !data.Organization || !data.Experience || !data.Salary) {
     sap.m.MessageToast.show("Please fill all required fields before saving.");
+     BusyD.hide();
     return;
   }
 
-  // ✅ Remove unwanted properties
   delete data.createdAt;
   delete data.createdBy;
   delete data.modifiedAt;
   delete data.modifiedBy;
   delete data.user;
   delete data.user_ID;
-  delete data.__metadata; // sometimes appears from OData
-
-  // ✅ Prepare model for update
+  delete data.__metadata; 
   let oModel = this.getOwnerComponent().getModel("mainService");
-
+var that=this;
   oModel.update(`/IncomeResources('${data.ID}')`, data, {
     success: function (odata) {
-      sap.m.MessageToast.show("Resource data updated successfully!");
-      console.log("✅ Update Success:", odata);
+that.ObjectRouterViewData();
+oEvent.getSource().getParent().close();
+      MessageToast.show("Resource data updated successfully!");
+     
     },
     error: function (err) {
-      sap.m.MessageToast.show("Error updating resource data.");
-      console.error("❌ Update Error:", err);
+     BusyD.hide();
+      console.error(" Update Error:", err);
     },
   });
 
@@ -219,24 +221,23 @@ sap.ui.define(
                 columnsM: 2,
                 columnsS: 1,
                 content: [
-                  new Label({ text: "Job Title" }),
-                  new Input({ value: "{TempUserModel>/JobTitle}" }),
-                  new Label({ text: "Organization Name" }),
-                  new Input({ value: "{TempUserModel>/Organization}" }),
+                  new Label({ text: "Job Title", required:true }),
+                  new Input({ value: "{TempUserModel>/JobTitle}" ,placeholder:"e.g Software Engineer"}),
+                  new Label({ text: "Organization Name" ,required:true }),
+                  new Input({ value: "{TempUserModel>/Organization}", placeholder: "e.g. xyz Solutions" }),
                   new Label({ text: "Expertise Area" }),
-                  new Input({ value: "{TempUserModel>/ExpertiseArea}" }),
-                  new Label({ text: "Experience" }),
-                  new Input({ value: "{TempUserModel>/Experience}" }),
-                  new Label({ text: "Payer Name" }),
-                  new Input({ value: "{TempUserModel>/PayerName}" }),
+                  new Input({ value: "{TempUserModel>/ExpertiseArea}" ,placeholder: "e.g. SAPUI5 / Fiori Development" }),
+                  new Label({ text: "Experience",required:true }),
+                  new Input({ value: "{TempUserModel>/Experience}" ,  type: "Number",  placeholder: "e.g. 2.5"}),
                   new Label({ text: "Location" }),
-                  new Input({ value: "{TempUserModel>/Location}" }),
+                  new Input({ value: "{TempUserModel>/Location}" ,  placeholder: "e.g. Ahmedabad, India"}),
                   new Label({ text: "Payer Name" }),
-                  new Input({ value: "{TempUserModel>/PayerName}" }),
-                  new Label({ text: "Salary" }),
+                  new Input({ value: "{TempUserModel>/PayerName}",placeholder: "e.g. Ramesh bhai" }),
+                  new Label({ text: "Salary" ,required:true}),
                   new Input({
                     value: "{TempUserModel>/Salary}",
                     type: "Number",
+                     placeholder: "e.g. 450000"
                   }),
                 ],
               }),
@@ -288,8 +289,130 @@ sap.ui.define(
           });
           
         },
-        SaveResourceDataHandler(oEvent) {},
+      SaveResourceDataHandler(oEvent) {
+
+  let AddResourceData = oEvent.getSource().getModel("TempUserModel").getData();
+BusyD.show();
+  if (!AddResourceData.JobTitle || !AddResourceData.Organization || !AddResourceData.Location || !AddResourceData.Salary) {
+    sap.m.MessageToast.show("Please fill all required fields before saving.");
+    BusyD.hide();
+    return;
+  }
+  let oModel = this.getOwnerComponent().getModel("mainService");
+AddResourceData.user_ID =$.sap.UserID;
+ var that=this;
+  oModel.create("/IncomeResources", AddResourceData, {
+    success: function (odata) {
+      that.ObjectRouterViewData();
+oEvent.getSource().getParent().close();
+      MessageToast.show("Resource added successfully!");
+ 
+    },
+    error: function (err) {
+       BusyD.hide();
+      MessageToast.show("Error adding resource data, error like "+JSON.parse(err.responseText).error.message.value);
+   
+    },
+  });
+
+  console.log("📦 Payload Sent:", AddResourceData);
+},
+ async DownloadPressHander(oEent){
+  let oModel = this.getOwnerComponent().getModel("mainService");
+
+ var that=this;
+  oModel.read("/IncomeResources", {
+    success: async function (odata) {
+
+   var workbook = new ExcelJS.Workbook();
+    var sheet = workbook.addWorksheet("Finance Tracker App Data");
+
+    sheet.mergeCells('D1', 'F1');
+    sheet.getCell('D1').value = 'My Tracker Data';
+    sheet.getCell('D1').font = { bold: true, size: 14 };
+    sheet.getCell('D1').alignment = { horizontal: 'center' };
+
+    sheet.mergeCells('D2', 'F2');
+    sheet.getCell('D2').value = 'Finance Income Resource ';
+    sheet.getCell('D2').font = { bold: true, size: 12 };
+    sheet.getCell('D2').alignment = { horizontal: 'center' };
+
+ var HeaderName ;
+ var dataRows=[];
+ odata.results.forEach(function(item,i){
+   const keysToDelete = [
+    "createdAt", "createdBy", "modifiedAt",
+    "modifiedBy", "user", "user_ID", "__metadata"
+  ];
+
+  keysToDelete.forEach(key => delete item[key]);
+  if(i === 0){
+    HeaderName = Object.keys(item);
+  }
+  dataRows.push(Object.values(item))
+
+ })
+  const headerRow = sheet.addRow(HeaderName);
+
+    headerRow.eachCell((cell) => {
+      cell.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: '002060' } 
+      };
+      cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+      cell.border = {
+        top: { style: 'thin' },
+        left: { style: 'thin' },
+        bottom: { style: 'thin' },
+        right: { style: 'thin' }
+      };
+    });
+
+    dataRows.forEach(rowData => {
+      const row = sheet.addRow(rowData);
+      row.eachCell(cell => {
+        cell.border = {
+          top: { style: 'thin' },
+          left: { style: 'thin' },
+          bottom: { style: 'thin' },
+          right: { style: 'thin' }
+        };
+        cell.alignment = { vertical: 'middle', wrapText: true };
+      });
+    });
+
+    const widths = [28, 19, 12, 19, 25, 19, 15, 19, 25];
+    widths.forEach((w, i) => sheet.getColumn(i + 1).width = w);
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "my_finance_data.xlsx";
+    link.click();
+
+    },
+    error: function (err) {
+       
+    },
+  });
+       
+
+
+    // const headers = [
+    //   '#', 'Date', 'Received Date', 'Gate Pass No', 'Vehicle No',
+    //   'From Site Name', 'To Site Name', 'Material Description', 'Qty.',
+    //   'Received Qty', 'Unit', 'Seq. Inward No', 'PSP Seal No',
+    //   'Transporter Name', 'GP Received By', 'Physical Count By'
+    // ];
+
+   
       }
+
+      }
+     
     );
   }
 );

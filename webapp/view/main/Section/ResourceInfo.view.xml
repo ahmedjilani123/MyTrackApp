@@ -158,6 +158,12 @@
                     titleUppercase="false"
                 >
                   <Table mode="SingleSelectLeft" id="IncomeResourceTableID" items="{UserDataM>/incomeResources/results}">
+                  	<headerToolbar>
+			<OverflowToolbar>
+			<ToolbarSpacer ></ToolbarSpacer>
+					<Button text="Download Resource"  press="DownloadPressHander"></Button>
+			</OverflowToolbar>
+		</headerToolbar>
   <items>
   <ColumnListItem >
   <cells>

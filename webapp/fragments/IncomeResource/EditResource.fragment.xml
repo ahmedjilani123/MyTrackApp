@@ -4,19 +4,19 @@
 
 <form:SimpleForm layout="ColumnLayout"  >
 <form:content>
-<Label text="Job Title"></Label>
+<Label text="Job Title" required="true"></Label>
 <Input value="{TempUserModel>/JobTitle}"></Input>
-<Label text="Organization Name"></Label>
+<Label text="Organization Name" required="true"></Label>
 <Input value="{TempUserModel>/Organization}"></Input>
 <Label text="Expertise Area"></Label>
 <Input value="{TempUserModel>/ExpertiseArea}"></Input>
-<Label text="Experience"></Label>
+<Label text="Experience" required="true"></Label>
 <Input type="Number" value="{TempUserModel>/Experience}"></Input>
 <Label text="Location"></Label>
 <Input value="{TempUserModel>/Location}"></Input>
 <Label text="Payer Name"></Label>
 <Input type="Text" value="{TempUserModel>/PayerName}"></Input>
-<Label text="Primary Income"></Label>
+<Label text="Primary Income" required="true"></Label>
 <Input type="Number" value="{TempUserModel>/Salary}"></Input>
 
 </form:content>
