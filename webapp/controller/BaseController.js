@@ -15,7 +15,6 @@ Model.read(`/Users('${UserID}')`,{
     "$select": "FullName,Email,AvatarImage" 
   },
 	success:function(odata){
-console.log(odata)
 var oModel = that.getOwnerComponent().getModel("DashboardM");
 oModel.setData(odata);
 	},

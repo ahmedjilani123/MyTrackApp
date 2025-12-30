@@ -26,7 +26,7 @@ sap.ui.define([
                     }
                 })
 
-				
+				this.GetYEar();
           var Router = this.getOwnerComponent().getRouter();
         Router.getRoute("Home").attachPatternMatched(this.ObjectRouterViewData,this );
         },
@@ -42,6 +42,21 @@ console.log(odata)
 	}
 })
         },
+		GetYEar(){
+var Model = this.getOwnerComponent().getModel("mainService");
+Model.read(`/Users('${$.sap.UserID}')`,{
+	urlParameters:{
+		"$expand":"yearlyAmounts"
+
+	},
+	success:function(odata){
+console.log(odata)
+	},
+	error:function(err){
+		console.log(err)
+	}
+})
+		},
         AddContactHandler(){
             if(!this.AddContact){
  this.AddContact = Fragment.load({

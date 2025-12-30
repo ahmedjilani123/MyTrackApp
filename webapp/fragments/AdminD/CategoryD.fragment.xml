@@ -4,12 +4,14 @@
 <form:SimpleForm >
 <form:content>
 <Label text="Category Name"></Label>
-<Input ></Input>
+<Input value="{EditCategoryM>/CategoryName}"></Input>
 <Label text="Type"></Label>
-<Select >
-<core:Item text="Income"></core:Item>
-<core:Item text="Expense"></core:Item>
-<core:Item text="Other"></core:Item>
+<Label text="Category Description"></Label>
+<Input value="{EditCategoryM>/Description}"></Input>
+<Select selectedKey="{EditCategoryM>/CategoryType}">
+<core:Item text="Income" key="Income"></core:Item>
+<core:Item text="Expense" key="Expense"></core:Item>
+
 </Select>
 </form:content>
 </form:SimpleForm>
@@ -18,7 +20,7 @@
 <Button text="Close" press="CloseCategoryYearPress"></Button>
 </beginButton>
 <endButton>
-<Button text="Save" ></Button>
+<Button text="Save" press="onSaveEditCategoryHandler"></Button>
 </endButton>
 </Dialog>
 </core:FragmentDefinition>

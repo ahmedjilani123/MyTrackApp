@@ -135,6 +135,9 @@
         "type": "sap.ui.model.json.JSONModel",
         "dataSource": "Pending"
       },
+      "CategoryM": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
       "mainService": {
         "dataSource": "mainService",
         "preload": true,

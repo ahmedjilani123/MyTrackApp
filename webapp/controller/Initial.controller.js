@@ -38,6 +38,7 @@ MainModel.callFunction("/UserLogin", {
     urlParameters:UserData,
     success: function (oData, response) {
         const UserID = oData.UserLogin.UserID;
+        $.sap.UserID = UserID;
         var Router = that.getOwnerComponent().getRouter();
             Router.navTo("RouteDashboard",{
                 id:UserID

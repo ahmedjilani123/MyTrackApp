@@ -12,15 +12,15 @@
        <layout:BlockLayoutCell title="List Of Category" >
        	<Panel >
   
-  <Table >
+  <Table items="{CategoryM>/categories/}">
   <items>
   <ColumnListItem >
   <cells>
-  <Text text="Salary"></Text>
-  <Text text="Income"></Text>
+  <Text text="{CategoryM>CategoryName}"></Text>
+  <Text text="{CategoryM>CategoryType}"></Text>
   <HBox justifyContent="Center" alignItems="Center">
   <Button icon="sap-icon://edit" type="Attention" press="EditCategoryHandler"></Button>
-  <Button icon="sap-icon://delete" type="Reject" class="sapUiTinyMarginBegin"></Button>
+  <Button icon="sap-icon://delete" type="Reject" class="sapUiTinyMarginBegin" press="onDeleteCategoryHandler"></Button>
   </HBox>
   </cells>
   </ColumnListItem>
@@ -158,14 +158,16 @@
 					<form:SimpleForm >
                     <form:content>
                     <Label text="Category Name"></Label>
-                    <Input ></Input>
+                    <Input value="{CategoryM>/CategoryName}"></Input>
+                       <Label text="Category Description"></Label>
+                    <Input value="{CategoryM>/Description}"></Input>
                     <Label text="Category Type"></Label>
-                    <Select >
-                    <core:Item text="Income"></core:Item>
-                       <core:Item text="Expense"></core:Item>
-                          <core:Item text="Other"></core:Item>
+                    <Select selectedKey="{CategoryM>/CategoryType}">
+                    <core:Item text="Income" key="Income"></core:Item>
+                       <core:Item text="Expense" key="Expense"></core:Item>
+                          <!-- <core:Item text="Other"></core:Item> -->
                     </Select>
-                    <Button text="Save"></Button>
+                    <Button text="Save" press="onSaveCategoryHandler"></Button>
                     </form:content>
                     </form:SimpleForm>
 					</f:SidePanelItem>
