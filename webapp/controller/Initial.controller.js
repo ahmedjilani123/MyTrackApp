@@ -20,7 +20,9 @@ sap.ui.define([
             try {
                 var MainModel = this.getOwnerComponent().getModel("mainService");
                  let LoginInfoM = this.getOwnerComponent().getModel("LoginInfoM")
-            let UserData = LoginInfoM.getData();
+                 let UserData = LoginInfoM.getData();
+                 UserData.Email = "Ahmed@gmail.com";
+                    UserData.Password = "Admin@123";
        
                  
             if(Object.keys(UserData).length === 0 ) throw Error("Please Enter a Email");

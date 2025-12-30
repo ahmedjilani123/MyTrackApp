@@ -41,19 +41,19 @@
 <form:SimpleForm >
 <form:content>
 <Label text="Amount" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Label>
-<Input type="Number" placeholder="e.g ₹ 1,000" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Input>
+<Input type="Number" value="{TransactModel>/Amount}" placeholder="e.g ₹ 1,000" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Input>
 <Label text="Category" visible="{= ${TempModel>/Show} !== 'No' ? true : false}"></Label>
-<Select visible="{= ${TempModel>/Show} !== 'No' ? true : false}">
-<core:Item text="Income"></core:Item>
-</Select>
+<Select items="{CatIncomM>/Categories}" forceSelection="false" selectedKey="{TransactModel>/Category}"  visible="{= ${TempModel>/Show} !== 'No' ? true : false}">
+<core:Item text="{CatIncomM>CategoryName}" key="{CatIncomM>CategoryName}"></core:Item>
+</Select> 
 <Label text="Business Partner" visible="{= ${TempModel>/Show} === 'In' ? true : false}"></Label>
-<Select visible="{= ${TempModel>/Show} === 'In' ? true : false}">
-<core:Item text="Income"></core:Item>
+<Select items="{CatIncomM>/Incomes}" forceSelection="false" selectedKey="{TransactModel>/BusinessPartner}" visible="{= ${TempModel>/Show} === 'In' ? true : false}">
+<core:Item text="{CatIncomM>JobTitle}" key="{CatIncomM>JobTitle}"></core:Item>
 </Select>
 <Label text="Title"></Label>
-<Input placeholder="e.g Salary" ></Input>
+<Input type="Text" placeholder="e.g Salary" value="{TransactModel>/Title}"></Input>
 <Label text="Description"></Label>
-<TextArea rows="2" placeholder="Enter few words"></TextArea>
+<TextArea rows="2" value="{TransactModel>/Description}" placeholder="Enter few words"></TextArea>
 </form:content>
 </form:SimpleForm>
 

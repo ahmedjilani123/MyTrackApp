@@ -138,6 +138,9 @@
       "CategoryM": {
         "type": "sap.ui.model.json.JSONModel"
       },
+      "TransactModel":{
+        "type":"sap.ui.model.json.JSONModel"
+      },
       "mainService": {
         "dataSource": "mainService",
         "preload": true,

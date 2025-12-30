@@ -26,6 +26,31 @@ sap.ui.define([
          footer.removeStyleClass(footerClass)
           titlePage.removeStyleClass(ttileClass)
           var showData ;
+          const mainModel = this.getOwnerComponent().getModel("mainService");
+          mainModel.read("/Users('"+$.sap.UserID+"')",{
+            urlParameters:{
+              "$expand":"incomeResources,expenseCategories"
+            },
+            success:(oData)=>{
+              const objCatIncom = {Categories:[],Incomes:[]};
+              
+                if(getValue == 'Add Expense'){
+                var categoryData = oData.expenseCategories.results.filter(type=> type.CategoryType === "Expense");
+                objCatIncom.Categories=categoryData;
+                }else {
+var categoryData = oData.expenseCategories.results.filter(type=> type.CategoryType === "Income");
+                objCatIncom.Categories=categoryData;
+                var incomeData = oData.incomeResources.results;
+                objCatIncom.Incomes = incomeData;
+                }
+                  const categoryIncomModel = new JSONModel(objCatIncom);
+                this.getView().setModel(categoryIncomModel,"CatIncomM");
+
+          },
+        error:(oError)=>{
+            console.error("Error fetching categories:", oError);
+        }});
+
 if( getValue == 'Add Expense'){
     showData = "Ex";
     titlePage.addStyleClass("sapAddExpenseCss");
@@ -52,9 +77,6 @@ if( getValue == 'Add Expense'){
 }
 var oTempModel = new JSONModel({Title:getValue,Show:showData});
         this.getView().setModel(oTempModel,"TempModel");
-
-      
-       
           var model = this.getOwnerComponent().getModel("ColumnLayout");
             model.setData({FLayout:"TwoColumnsBeginExpanded"})
             model.refresh(true);
@@ -63,6 +85,20 @@ var oTempModel = new JSONModel({Title:getValue,Show:showData});
          var model = this.getOwnerComponent().getModel("ColumnLayout");
             model.setData({FLayout:"OneColumn"})
             model.refresh(true);
+       },
+       SaveTransactionHandler(oEvent){
+        console.log(oEvent);
+        var data = this.getOwnerComponent().getModel("TransactModel");
+        var mainService = this.getOwnerComponent().getModel("mainService");
+        data.user_ID = $.sap.UserID;
+        mainService.create("/Transactions",data,{
+success(oData){
+
+},
+error(err){
+
+}
+        })
        }
     });
 });

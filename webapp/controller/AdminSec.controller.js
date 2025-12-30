@@ -133,6 +133,7 @@ sap.ui.define([
                 }});
         },
         onSaveEditCategoryHandler(oEvent){
+             BusyD.show();
             const oEditModel = oEvent.getSource().getParent().getModel("EditCategoryM");
             const oData = oEditModel.getData();
             const sCategoryID = oData.ID;
@@ -143,26 +144,31 @@ sap.ui.define([
             }
             this.getView().getModel("mainService").update(`/ExpenseCategories('${sCategoryID}')`, payload, {
                 success: function(oData, response) {
+                     BusyD.hide();
                      oEvent.getSource().getParent().close();
                     this.getAllCategoriesHandler();
                     MessageBox.success("Category updated successfully!");
                 }
                 .bind(this),
                 error: function(oError) {
+                    BusyD.hide();
                     MessageBox.error("Error updating category.");
                 }
             });
         },
         onDeleteCategoryHandler(oEvent){
+             BusyD.show();
             const oCategory = oEvent.getSource().getBindingContext("CategoryM").getObject();
             const sCategoryID = oCategory.ID;
             this.getView().getModel("mainService").remove(`/ExpenseCategories('${sCategoryID}')`, {
                 success: function(oData, response) {
+                     BusyD.hide();
                     this.getAllCategoriesHandler();
                     MessageBox.success("Category deleted successfully!");
                 }
                 .bind(this),
                 error: function(oError) {
+                     BusyD.hide();
                     MessageBox.error("Error deleting category.");
                 }
             });

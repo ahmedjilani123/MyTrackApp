@@ -21,7 +21,7 @@
                    <footer >
                    <OverflowToolbar id="footerIdForm">
                    <ToolbarSpacer ></ToolbarSpacer>
-                   <Button text="Save"></Button>
+                   <Button text="Save" type="Accept" press="SaveTransactionHandler"></Button>
                    </OverflowToolbar>
                    </footer>
             </Page>
