@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover
+		id="myPopover"
+	showHeader="false"
+		class="sapUiContentPadding"
+		placement="Bottom" >
+		<beginButton>
+			<Button text="SignOut"  />
+		</beginButton>
+		
+		<content>
+			<Title text="{DashboardM>/Email}"></Title>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

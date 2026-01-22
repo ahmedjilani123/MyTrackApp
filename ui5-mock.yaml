@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: aj.sap.weconnect
+  name: aj.sap.myexpenseapp
 type: application
 server:
   customMiddleware:
@@ -27,7 +27,7 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: aj.sap.weconnect
+        component: aj.sap.myexpenseapp
         ui5Theme: sap_horizon
     - name: sap-fe-mockserver
       beforeMiddleware: csp

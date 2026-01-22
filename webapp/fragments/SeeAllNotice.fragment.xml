@@ -1,0 +1,66 @@
+
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+<Dialog horizontalScrolling="true"   resizable="true" contentHeight="300px" title="All Notice Details" closeOnNavigation="true" state="Information" >
+<customHeader>
+<OverflowToolbar width="100%">
+<core:Icon src="sap-icon://information" color="#925FE2"></core:Icon>
+<Title text="All Notice Details"></Title>
+<ToolbarSpacer ></ToolbarSpacer>
+<SearchField width="auto"></SearchField>
+</OverflowToolbar>
+</customHeader>
+<content>
+<List growing="true" growingThreshold="15">
+<NotificationListItem
+					title="New Policy Update"
+					description="All employees must review the updated data protection policy shared via email."
+					showCloseButton="true"
+					datetime="1 hour"
+          type="Active"
+					unread="true"
+					priority="None"
+          showButtons="false" 
+					close=".onItemNoticeClose"
+					press=".onListItemPress"
+					authorPicture="sap-icon://notes" 
+					authorAvatarColor="Accent8" />  
+                    <NotificationListItem
+					title="New Policy Update"
+					description="All employees must review the updated data protection policy shared via email."
+					showCloseButton="false"
+					datetime="1 hour"
+          type="Active"
+					unread="true"
+					priority="None"
+          showButtons="false" 
+					close=".onItemClose"
+					press=".onListItemPress"
+					authorPicture="sap-icon://car-rental"
+					authorAvatarColor="Accent8" />  
+                    <NotificationListItem
+					title="New Policy Update"
+					description="All employees must review the updated data protection policy shared via email."
+					showCloseButton="false"
+					datetime="1 hour"
+          type="Active"
+					unread="true"
+					priority="None"
+          showButtons="false" 
+					close=".onItemClose"
+					press=".onListItemPress"
+					authorPicture="sap-icon://car-rental"
+					authorAvatarColor="Accent8" />  
+                    </List>
+
+</content>
+<beginButton>
+<Button text="Close" press="ClosePhoneDialogH"></Button>
+</beginButton>
+</Dialog>
+	
+	
+</core:FragmentDefinition>

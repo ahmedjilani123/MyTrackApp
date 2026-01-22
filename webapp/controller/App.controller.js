@@ -3,7 +3,7 @@ sap.ui.define([
 ], (Controller) => {
   "use strict";
 
-  return Controller.extend("aj.sap.weconnect.controller.Initial", {
+  return Controller.extend("aj.sap.myexpenseapp.controller.Initial", {
       onInit() {
       }
   });

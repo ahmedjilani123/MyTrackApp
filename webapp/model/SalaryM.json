@@ -1,0 +1,18 @@
+[
+    {
+        "MonthName":"Jan",
+        "CollAmount":18000
+    },
+     {
+        "MonthName":"fab",
+        "CollAmount":15000
+    },
+     {
+        "MonthName":"jul",
+        "CollAmount":11000
+    }
+    , {
+        "MonthName":"Mar",
+        "CollAmount":13000
+    }
+]

@@ -1,7 +1,7 @@
 {
   "_version": "1.60.0",
   "sap.app": {
-    "id": "aj.sap.weconnect",
+    "id": "aj.sap.myexpenseapp",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -16,12 +16,47 @@
       "toolsId": "d133e813-35e9-4eff-9b30-296c0d1bbe70"
     },
     "dataSources": {
-      "mainService": {
-        "uri": "model/AvatarList.json",
+       
+      "MainDataSalary": {
+        "uri": "./model/SalaryM.json",
         "type": "JSON"
+      },
+      "ContactInfo": {
+        "uri": "./model/Contact.json",
+        "type": "JSON"
+      },
+      "AvatarProfileM": {
+        "uri": "./model/AvatarList.json",
+        "type": "JSON"
+      },
+      "UserDataMain": {
+        "uri": "./model/UserData.json",
+        "type": "JSON"
+      },
+      "MainDataResource": {
+        "uri": "./model/Resource.json",
+        "type": "JSON"
+      },
+      "Material": {
+        "uri": "./model/MaterialP.json",
+        "type": "JSON"
+      },
+      "Missing": {
+        "uri": "./model/MissingG.json",
+        "type": "JSON"
+      },
+      "Pending": {
+        "uri": "./model/PendingG.json",
+        "type": "JSON"
+      },
+      "mainService": {
+        "uri": "https://trackerfinance.onrender.com/odata/v2/trackService/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
     }
-  }
-    
   },
   "sap.ui": {
     "technology": "UI5",
@@ -56,12 +91,62 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "aj.sap.weconnect.i18n.i18n"
+          "bundleName": "aj.sap.myexpenseapp.i18n.i18n"
         }
       },
-      "Modelm":{
-        "dataSource": "mainService",
+      "LoginInfoM":{
+          "type": "sap.ui.model.json.JSONModel"
+      },
+      "DashboardM":{
+          "type": "sap.ui.model.json.JSONModel"
+      },
+      "SalaryM": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "MainDataSalary"
+      },
+      "ColumnLayout": {
         "type": "sap.ui.model.json.JSONModel"
+      },
+      "ContactM": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "ContactInfo"
+      },
+      "AvatarProfile": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "AvatarProfileM"
+      },
+      "UserDataM": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "UserDataMain"
+      },
+      "ResourceM": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "MainDataResource"
+      },
+      "MaterialM": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "Material"
+      },
+      "MissingG": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "Missing"
+      },
+      "PendingG": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "Pending"
+      },
+      "CategoryM": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "TransactModel":{
+        "type":"sap.ui.model.json.JSONModel"
+      },
+      "mainService": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+            "useBatch":false
+        }
       }
     },
     "resources": {
@@ -79,9 +164,9 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "aj.sap.weconnect.view",
+        "path": "aj.sap.myexpenseapp.view",
         "async": true,
-        "viewPath": "aj.sap.weconnect.view",
+        "viewPath": "aj.sap.myexpenseapp.view",
         "bypassed": {
           "target": "NotFound"
         }
@@ -94,37 +179,130 @@
             "TargetInitial"
           ]
         },
-         {
-          "name": "MainRouter",
-          "pattern": "mainpage",
+        {
+          "name": "RouteDashboard",
+          "pattern": "dashboard/{id}",
           "target": [
-            "TargetMain"
+            "TargetDashboard",
+            "Home"
           ]
         },
-         {
-          "name": "DetailRouter",
-          "pattern": "detail",
+        {
+          "name": "Home",
+          "pattern": "dashboard/{id}/Home",
           "target": [
-            "TargetDetail"
+            "Home"
+          ]
+        },
+        {
+          "name": "IncomeExpense",
+          "pattern": "dashboard/{id}/IncomeEx",
+          "target": [
+            "IncomeExpense"
+          ]
+        },
+        {
+          "name": "AdminSec",
+          "pattern": "dashboard/{id}/adminSec",
+          "target": [
+            "AdminSec"
+          ]
+        },
+        {
+          "name": "AnalyticTran",
+          "pattern": "dashboard/{id}/transaction/:type:/:year:",
+          "target": [
+            "AnalyticTran"
+          ]
+        },
+        {
+          "name": "TransactDetail",
+          "pattern": "dashboard/{id}/transactdetail",
+          "target": [
+            "TransactDetail"
+          ]
+        },
+        {
+          "name": "BasicInfo",
+          "pattern": "dashboard/{id}/BasicInfo",
+          "target": [
+            "BasicInfo"
+          ]
+        },
+        {
+          "name": "Demo",
+          "pattern": "dashboard/demo",
+          "target": [
+            "Demo"
           ]
         }
-       
-       
       ],
       "targets": {
         "TargetInitial": {
           "id": "Initial",
           "name": "Initial"
         },
-         "TargetMain": {
-          "id": "MainId",
-          "name": "Main"
+        "TargetDashboard": {
+          "id": "Dashboard",
+          "transition": "show",
+          "name": "Main.Dashboard"
         },
-         "TargetDetail": {
-          "id": "DetailId",
-          "name": "Detail"
+        "Home": {
+          "id": "Home",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.Home"
         },
-       
+        "IncomeExpense": {
+          "id": "IncomeEx",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.IncomeEx"
+        },
+        "AdminSec": {
+          "id": "AdminSec",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.AdminSec"
+        },
+        "AnalyticTran": {
+          "id": "AnalyticTran",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.AnalyticTran"
+        },
+        "TransactDetail": {
+          "id": "TransactDetail",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.TransactDetail"
+        },
+        "BasicInfo": {
+          "id": "BasicInfo",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.ResourceInfo"
+        },
+        "Demo": {
+          "id": "Demo",
+          "parent": "TargetDashboard",
+          "controlId": "MainApp",
+          "controlAggregation": "pages",
+          "transition": "show",
+          "name": "Main.Section.Demo"
+        },
         "NotFound": {
           "id": "NotFound",
           "controlId": "app",
@@ -135,7 +313,7 @@
       }
     },
     "rootView": {
-      "viewName": "aj.sap.weconnect.view.App",
+      "viewName": "aj.sap.myexpenseapp.view.App",
       "type": "XML",
       "id": "App"
     }

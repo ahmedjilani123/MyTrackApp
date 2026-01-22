@@ -1,6 +1,6 @@
 /* Enter your custom styles here */
 .MainLoginPage{
-    background-image: url("../images/LoginPagem.png") !important;
+    background-image: url("../images/LoginPageM.png") !important;
     background-size: cover !important;
     background-position: center !important;
 }
@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 }
 .customInputClass::placeholder {
-    color: rgb(23, 208, 85);
+    color: white;
  font-weight: 400;
  font-family: 'Times New Roman', Times, serif;
       font-size: 0.9rem;  
@@ -44,56 +44,64 @@
 }
 
 .forgotPassText{
-    color: rgb(7, 240, 120) !important;
+    color: white !important;
     margin-left: 6.80rem;
    
 }
 
 /* login page css end */
 .TextClassHeader{
-  color: rgb(7, 240, 120) !important;
+    color: white !important;
 }
 .LabelClassHeader{
-    color: rgb(7, 240, 120) !important;
+    color: azure !important;
 }
 .HeaderCardCss{
     background-image:linear-gradient(to right,#925FE2,#DFCFF7) !important;
     
-  color: rgb(7, 240, 120) !important;
+    color: White !important;
 }
 .SideNavigationCss{
- 
+    /* background-image:linear-gradient(to bottom,#925FE2,#DFCFF7) !important; */
+    /* background-image:linear-gradient(to bottom,#ff6d607b ,#DFCFF7) !important;  */
     background-image:linear-gradient(to bottom,white,#ffeaeb) !important;
 }
 .HeaderCssTt{
   
-    
+      /* background-image:linear-gradient(to right,#925FE2,#DFCFF7) !important; */
       background-image:linear-gradient(to right,white,#ffeaeb) !important;
-        color: rgb(7, 240, 120) !important;
+        color: White !important;
 }
-.MainHBOXDiv {
-  width: auto !important;
-  border-radius: 12px;
-  cursor: pointer !important;
-  margin-top: 1rem;
-  margin-left: 2.25rem !important;
-  margin-right: 2.25rem !important;
-  overflow-wrap: break-word !important;
 
-  background-image: linear-gradient(
-    135deg,
-    #1E88E5,
-    #42A5F5,
-    #66BB6A,
-    #43A047
-  );
-
-  box-shadow: 
-    0 6px 12px rgba(30, 136, 229, 0.25),
-    0 10px 24px rgba(67, 160, 71, 0.25) !important;
-
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Income Page */
+.sapAddIncomeCss{
+    color: #00a63e !important;
 }
-.MainTitleClass{
-    color:white !important;
+.sapAddExpenseCss{
+    /* color: #e80d16 !important; */
+    color:#dd6100 !important;
+}
+.sapAddAddTaskCss{
+    color: #a55dfd !important;
+}
+.sapAddInvestCss{
+    color: #3b90fe !important;
+}
+.sapBackgroundIncomeCss{
+    background-color: #e6faee !important;
+}
+.sapBackgroundExpenseCss{
+    background-color: #ffeaeb !important;
+}
+.sapBackgroundNoticeCss{
+    background-color: #f6ecff !important;
+}
+.sapBackgroundInvestCss{
+    background-color: #e9f2ff !important;
+    /* border:1px dotted black !important; */
+}
+
+.Separater {
+  border-left: 0.5px solid gray;
+ height: 100px !important;
 }

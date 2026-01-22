@@ -1,0 +1,56 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		id="myPopoverYear"
+		showHeader="false"
+		contentWidth="320px"
+		contentHeight="500px"
+		placement="Bottom"
+		ariaLabelledBy="master-title">
+		<NavContainer
+			id="navYearCon">
+			<Page
+				id="master"
+				class="sapUiResponsivePadding--header"
+				title="Check Year Wise Data">
+				<List
+					id="list"
+					 >
+					<StandardListItem
+						title="2024"
+						description="description"
+						type="Active"
+						icon="sap-icon://lateness"
+						press="onNavYearDetail"
+						iconDensityAware="false"
+						iconInset="false" />
+				</List>
+			</Page>
+			<Page
+				id="detailYear"
+				class="sapUiResponsivePadding--header"
+				showNavButton="true" showFooter="true"
+				navButtonPress="onNavBackYear"
+				title="Finance Year">
+				<content>
+					<ObjectHeader title="Year 2024" >
+						<attributes>
+							<ObjectAttribute text="₹40,000"  title="Total Income"/>
+							<ObjectAttribute text="₹40,000" title="Total Expense" />
+                            <ObjectAttribute title="Balance" text="₹40,000"></ObjectAttribute>
+						</attributes>
+					</ObjectHeader>
+					<Text class="sapUiSmallMargin" text="description" />
+				</content>
+                <footer>
+                <OverflowToolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Label text="Check In/Out transaction"></Label>
+                <Button text="Show All" press="NavToMainTransactionPress"></Button>
+                </OverflowToolbar>
+                </footer>
+			</Page>
+		</NavContainer>
+	</Popover>
+</core:FragmentDefinition>

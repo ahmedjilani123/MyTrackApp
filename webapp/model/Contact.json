@@ -1,0 +1,42 @@
+[
+    {
+        "Name": "Ahmed",
+        "Email": "ahmed@gmail.com",
+        "Message": "Business Partner for PHP",
+        "Phone": "+91 5456432345",
+        "Avatar": "A",
+        "Designation": "PHP Developer"
+    },
+    {
+        "Name": "Riya Sharma",
+        "Email": "riya.sharma@gmail.com",
+        "Message": "Interested in SAP UI5 collaboration",
+        "Phone": "+91 9823012345",
+        "Avatar": "RS",
+        "Designation": "SAP UI5 Consultant"
+    },
+    {
+        "Name": "Karan Patel",
+        "Email": "karan.patel@gmail.com",
+        "Message": "Looking for frontend project partnership",
+        "Phone": "+91 9898123456",
+        "Avatar": "KP",
+        "Designation": "Frontend Developer"
+    },
+    {
+        "Name": "Sneha Desai",
+        "Email": "sneha.desai@gmail.com",
+        "Message": "Backend developer available for freelancing",
+        "Phone": "+91 9012345678",
+        "Avatar": "SD",
+        "Designation": "Backend Engineer"
+    },
+    {
+        "Name": "Vikram Mehta",
+        "Email": "vikram.mehta@gmail.com",
+        "Message": "Interested in full-stack collaboration",
+        "Phone": "+91 9543012456",
+        "Avatar": "VM",
+        "Designation": "Marketing Manager"
+    }
+]
