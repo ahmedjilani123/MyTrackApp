@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Control) {
     "use strict";
 
-    return Control.extend("aj.sap.myexpenseapp.utils.MyButton", {
+    return Control.extend("aj.sap.weconnect.utils.MyButton", {
         metadata: {
             properties: {
                 text: { type: "string", defaultValue: "" },   // button label

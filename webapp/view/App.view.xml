@@ -1,4 +1,4 @@
-<mvc:View controllerName="aj.sap.myexpenseapp.controller.App"
+<mvc:View controllerName="aj.sap.weconnect.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">

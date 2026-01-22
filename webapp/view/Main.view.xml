@@ -1,0 +1,111 @@
+<mvc:View controllerName="aj.sap.weconnect.controller.Main"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+  <Page id="MainId" title="Main Title" showHeader="false" showFooter="true" floatingFooter="true"> 
+  <content>
+   <HBox
+                id="Main_ID"
+                class="MainHBOXDiv"
+                width="100%"
+                justifyContent="Center"
+                alignItems="Center"
+                height="130px"
+                wrap="Wrap"
+            >
+            <VBox  justifyContent="Center"
+                alignItems="Center">
+                <Title
+                    id="MainHeader" class="MainTitleClass"
+                    text="We Connect"
+                    titleStyle="H2"
+                />
+                <Label text="Welcome Ahmed !"></Label>
+            </VBox>
+            </HBox>
+            <Table items="{Modelm>/data}" autoPopinMode="true"  showUnread="true"  inset="true"  mode="SingleSelectLeft" alternateRowColors="true" headerText="Week List">
+            <headerToolbar>
+            <OverflowToolbar design="Solid">
+            <Title text="Week List (0)"></Title>
+            <ToolbarSpacer ></ToolbarSpacer>
+            <Button text="Update" press="onOpenDialogU"></Button>
+              <Button text="New"></Button>
+            </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+            <Column hAlign="Center" minScreenWidth="Desktop" demandPopin="true">
+            <Label text="Week Number"></Label>
+            </Column>
+             <Column hAlign="Center" importance="High" >
+            <Label text="Total Days(c/t)"></Label>
+            </Column>
+          
+             
+             
+             <Column hAlign="Center" importance="Medium">
+            <Label text="Start Date"></Label>
+            </Column>
+             <Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+            <Label text="End Date"></Label>
+            </Column>
+               <Column hAlign="Center" importance="High" demandPopin="false">
+            <Label text="Status"></Label>
+            </Column>
+             <Column hAlign="Center" width="17rem"  demandPopin="true">
+            <Label text="Remark"></Label>
+            </Column>
+             
+            </columns>
+            <items>
+            <ColumnListItem type="Navigation" press="onDetailNavigate">
+            <cells>
+            <Text text="{Modelm>weekNumber}"></Text>
+            	<ObjectStatus
+						
+							text="{Modelm>currentDays} / {Modelm>totalDays}" 	icon="sap-icon://notes"
+							active="false"
+							inverted="true"
+							state="{path:'Modelm>status', formatter:'.formatter.statusText'}" />
+            
+            
+            
+                    	 	
+                <Text text="{path:'Modelm>startDate',
+        type:'sap.ui.model.type.Date',
+        formatOptions:{
+            source:{
+                pattern:'yyyy-MM-dd'
+            }
+        }}"></Text>
+                <Text text="{ path:'Modelm>endDate',
+        type:'sap.ui.model.type.Date',
+        formatOptions:{
+            source:{
+                pattern:'yyyy-MM-dd'
+            }
+        }}"></Text>
+                	<ObjectStatus
+						
+							text="{Modelm>status}"
+							active="true"
+							inverted="false"
+							icon="sap-icon://complete"
+							state="Indication04" />
+                
+                 	<ExpandableText textAlign="Begin" maxCharacters="40" wrappingType="Hyphenated" text="{Modelm>remark}" overflowMode="Popover" />
+                   
+                   
+            </cells>
+            </ColumnListItem>
+            </items>
+            </Table>
+            
+            </content>
+            <footer>
+            <OverflowToolbar >
+            <ToolbarSpacer ></ToolbarSpacer>
+            <Button text="SignOut"></Button>
+            </OverflowToolbar>
+            </footer>
+  </Page>
+</mvc:View>

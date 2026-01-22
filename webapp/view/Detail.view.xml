@@ -1,0 +1,123 @@
+<mvc:View controllerName="aj.sap.weconnect.controller.Detail"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+   
+ <Page id="DetailId" title="Detail View" showHeader="false" showFooter="true" floatingFooter="true">
+ <content>
+ 	 <ObjectHeader 
+		icon="test-resources/sap/m/images/Woman_04.png"
+		iconDensityAware="false"
+		iconAlt="Denise Smith"
+		imageShape="Circle"
+		responsive="true"
+		title="Denise Smith"
+		intro="Senior Developer"
+		class="sapUiResponsivePadding--header" >
+     
+			<ObjectAttribute title="Email address" text="DeniseSmith@sap.com" active="false" />
+		
+            <statuses>
+        
+            	<ObjectStatus
+						
+							text="Transfer" 	icon="sap-icon://notes"
+							active="true"
+							inverted="true"
+							state="Warning" />
+            </statuses>
+	</ObjectHeader>
+ 	<List headerText="Weekly Updates (1)" inset="true"
+		showSeparators="Inner"
+		>
+		<FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            <FeedListItem
+			sender="Ahmed"
+			
+			senderPress="onSenderPress"
+			iconPress="onIconPress"
+			timestamp="20 Jan 2026"
+            info="Connect Update"
+			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+			convertLinksToAnchorTags="All"/>
+            </List>
+ </content>
+   <footer>
+            <OverflowToolbar >
+          
+            <Button text="Back" press="NavBacktoHome"></Button>
+            </OverflowToolbar>
+            </footer>
+ </Page>
+</mvc:View>

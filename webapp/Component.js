@@ -1,10 +1,10 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "aj/sap/myexpenseapp/model/models"
+    "aj/sap/weconnect/model/models"
 ], (UIComponent, models) => {
     "use strict";
 
-    return UIComponent.extend("aj.sap.myexpenseapp.Component", {
+    return UIComponent.extend("aj.sap.weconnect.Component", {
         metadata: {
             manifest: "json",
             interfaces: [
@@ -17,11 +17,7 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
 
             // set the device model
-             
-            this.setModel(models.createDeviceModel(), "device");
- var omdeol =this.getModel("ColumnLayout");
-                omdeol.setData({FLayout:"OneColumn"})
-                omdeol.refresh(true);
+       
             // enable routing
             this.getRouter().initialize();
         }

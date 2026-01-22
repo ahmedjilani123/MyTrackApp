@@ -1,47 +1,31 @@
-[
+{
+  "data": [
     {
-        "AvatarName": "Standard",
-        "AvatarKey": "001",
-        "AvatarImage": ""
+      "weekNumber": "Week 1",
+      "startDate": "20260115",
+      "endDate": "20260107",
+      "currentDays": 5,
+      "totalDays": 7,
+      "remark": "Planning phase is in progress.\nInitial requirements have been discussed.\nTeam allocation is partially completed.\nTimeline is being finalized.\nAwaiting final approval.",
+      "status": "Open"
     },
     {
-        "AvatarName": "Master Girl",
-        "AvatarKey": "002",
-        "AvatarImage": "/images/masterGirl.png"
+      "weekNumber": "Week 2",
+      "startDate": "20260108",
+      "endDate": "20260114",
+      "currentDays": 7,
+      "totalDays": 7,
+      "remark": "Development activities are ongoing.\nCore functionality has been implemented.\nIntegration testing is in progress.\nMinor issues are being resolved.\nProgress is on track as planned.",
+      "status": "Active"
     },
     {
-        "AvatarName": "Champion Girl",
-        "AvatarKey": "004",
-        "AvatarImage": "/images/GirlAvatar.png"
-    },
-    {
-        "AvatarName": "Innovator Man",
-        "AvatarKey": "003",
-        "AvatarImage": "/images/BoyAvatar.png"
-    },
-    {
-        "AvatarName": "Smart Girl",
-        "AvatarKey": "05",
-        "AvatarImage": "/images/AgeGirl.png"
-    },
-    {
-        "AvatarName": "Boss Man",
-        "AvatarKey": "06",
-        "AvatarImage": "/images/Oldman.png"
-    },
-    {
-        "AvatarName": "Legend",
-        "AvatarKey": "08",
-        "AvatarImage": "/images/AgeBoy.png"
-    },
-    {
-        "AvatarName": "Simple Girl",
-        "AvatarKey": "09",
-        "AvatarImage": "/images/SimpleGirl.png"
-    },
-     {
-        "AvatarName": "Simple Boy",
-        "AvatarKey": "07",
-        "AvatarImage": "/images/avatar.png"
+      "weekNumber": "Week 3",
+      "startDate": "20260115",
+      "endDate": "20260121",
+      "currentDays": 7,
+      "totalDays": 7,
+      "remark": "All planned tasks have been completed.\nFinal testing has been performed successfully.\nNo critical issues found during validation.\nDocumentation has been updated.\nProject phase is officially closed.",
+      "status": "Closed"
     }
-]
+  ]
+}
